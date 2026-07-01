@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Dependency / build output (none today, but keep the repo clean if tooling is added)
+node_modules/
+dist/
+
+# Netlify local dev
+.netlify/
