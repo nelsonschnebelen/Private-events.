@@ -82,7 +82,10 @@ In `example.html`, search for:
   capacities, minimums, and which occasions each room fits)
 - **Packages** — the three `.pkg` blocks (names, inclusions, pricing)
 - **Copy, testimonial, footer/contact** — replace the illustrative placeholder text
-- **Photography** — swap the `.ph-*` CSS gradient placeholders for real photos
+- **Photography** — the hero, room cards and gallery load curated **Unsplash
+  stock as placeholders** (hero URL + the `img` field in the `SPACES` array +
+  the gallery `<figure>` tags). Swap those URLs for the venue's own photos. Note
+  this means `example.html` needs a network connection to show its imagery.
 - **Meta Pixel** — an optional `Lead` event hook is noted near the `</form>`
 
 ## A note on the numbers
