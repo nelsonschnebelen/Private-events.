@@ -36,11 +36,16 @@ describes. Highlights:
 A ready-to-ship landing page for the fictional **Ember & Vine** (a wood-fired
 kitchen & wine bar), demonstrating every principle from the playbook:
 
-- Hero, occasion selector, and a party-size **fit checker** that highlights the
-  rooms matching a headcount.
-- A dynamically rendered **Spaces** grid (5 rooms with capacities + minimums).
-- Three concrete **package tiers** with per-guest pricing.
-- Gallery, testimonial, and an inquiry form wired for
+- **"Compose Your Evening"** — an interactive configurator: pick occasion,
+  guests, package and signature moments and a live proposal panel assembles the
+  matched room, inclusions and an estimated investment, then prefills the form.
+- **Cinematic art direction** — an ember-particle canvas over the hero, a
+  cursor-tracking spotlight, 3D tilt-on-hover room cards, and a shared warm
+  colour grade so the photography reads as one art-directed set.
+- A **Spaces** grid (5 rooms with photos, capacities + minimums) that lights up
+  the rooms matching whatever you compose above.
+- Three **package tiers** with per-guest pricing, a mosaic **gallery**, a
+  testimonial, and an inquiry form wired for
   [Netlify Forms](https://docs.netlify.com/forms/setup/).
 - A demo ribbon and footer that link back to the playbook.
 
