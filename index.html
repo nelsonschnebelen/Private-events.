@@ -1,575 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Private Events Playbook — Turn One Room Into Your Restaurant's Most Profitable Night</title>
-<meta name="description" content="The ultimate guide to restaurant private events: how to package them, design an unforgettable experience, and convert paid ads into booked celebrations. Includes a live revenue calculator.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Private Events Playbook — package, price, and fill your restaurant&#39;s private room.">
+<title>The Private Events Playbook</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&display=swap');
-  *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#08080b;--bg2:#0e0d13;--panel:rgba(255,255,255,.035);--panel2:rgba(255,255,255,.055);
-    --line:rgba(255,255,255,.10);--line2:rgba(255,255,255,.16);
-    --ink:#f6f3ee;--mut:#a7a29b;--dim:#6c6862;
-    /* ember gradient */
-    --f1:#ffc24b;--f2:#ff7a4d;--f3:#f0508a;--f4:#a24bd6;
-    --good:#5fd39a;
-    --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
-    --grad:linear-gradient(100deg,var(--f1),var(--f2) 42%,var(--f3) 78%,var(--f4));
+    --paper:#F7F4EF; --ink:#211C18; --muted:#7A716A; --line:#E2DCD3;
+    --wine:#6E1F2E; --wine-soft:#F0E4E6; --brass:#A9814C; --card:#FFFFFF;
+    --shadow:0 1px 2px rgba(33,28,24,.05),0 8px 28px rgba(33,28,24,.07);
+    --display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#191411; --ink:#EDE6DD; --muted:#9C9088; --line:#332B25;
+      --wine:#C4576B; --wine-soft:#2A1B1E; --brass:#C09A62; --card:#211B17;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#F7F4EF; --ink:#211C18; --muted:#7A716A; --line:#E2DCD3;
+    --wine:#6E1F2E; --wine-soft:#F0E4E6; --brass:#A9814C; --card:#FFFFFF;
+    --shadow:0 1px 2px rgba(33,28,24,.05),0 8px 28px rgba(33,28,24,.07);
+  }
+  :root[data-theme="dark"]{
+    --paper:#191411; --ink:#EDE6DD; --muted:#9C9088; --line:#332B25;
+    --wine:#C4576B; --wine-soft:#2A1B1E; --brass:#C09A62; --card:#211B17;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-  .narrow{max-width:820px}
-  ::selection{background:rgba(255,122,77,.35)}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important;animation:none!important} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
 
-  /* ---- animated aurora background ---- */
-  .aurora{position:fixed;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(120% 90% at 50% -10%,#14101c,var(--bg) 60%)}
-  .aurora span{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;mix-blend-mode:screen;will-change:transform}
-  .a1{width:52vw;height:52vw;left:-8vw;top:-10vw;background:radial-gradient(circle,rgba(255,122,77,.55),transparent 60%);animation:drift1 22s ease-in-out infinite}
-  .a2{width:46vw;height:46vw;right:-8vw;top:6vw;background:radial-gradient(circle,rgba(240,80,138,.5),transparent 60%);animation:drift2 26s ease-in-out infinite}
-  .a3{width:44vw;height:44vw;left:18vw;top:38vw;background:radial-gradient(circle,rgba(162,75,214,.42),transparent 60%);animation:drift3 30s ease-in-out infinite}
-  @keyframes drift1{50%{transform:translate(14vw,10vw) scale(1.15)}}
-  @keyframes drift2{50%{transform:translate(-12vw,8vw) scale(1.1)}}
-  @keyframes drift3{50%{transform:translate(8vw,-12vw) scale(1.2)}}
-  .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-    background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:24px 24px}
-  @media(prefers-reduced-motion:reduce){.aurora span{animation:none}}
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .wordmark{font-family:var(--display);font-size:1.05rem;letter-spacing:.01em;text-decoration:none;font-weight:600}
+  .wordmark em{font-style:italic;color:var(--wine)}
+  .nav-links{display:flex;gap:26px;font-size:.82rem}
+  .nav-links a{text-decoration:none;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;font-weight:500}
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--wine)}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--wine);outline-offset:3px;border-radius:2px}
+  @media(max-width:680px){.nav-links{display:none}}
 
-  /* ---- scroll progress ---- */
-  .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:var(--grad);box-shadow:0 0 14px rgba(255,122,77,.5)}
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;text-align:left}
+  .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin:0 0 20px}
+  h1{font-family:var(--display);font-weight:500;font-size:clamp(2.4rem,5.6vw,4.1rem);line-height:1.06;margin:0 0 22px;text-wrap:balance;max-width:16ch}
+  h1 em{font-style:italic;color:var(--wine)}
+  .lede{font-size:1.08rem;color:var(--muted);max-width:52ch;margin:0 0 34px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 26px;border-radius:2px;text-decoration:none;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;border:1px solid var(--wine);transition:background .15s,color .15s}
+  .btn-solid{background:var(--wine);color:var(--paper)}
+  .btn-solid:hover{background:transparent;color:var(--wine)}
+  .btn-ghost{color:var(--wine)}
+  .btn-ghost:hover{background:var(--wine);color:var(--paper)}
 
-  /* ---- nav ---- */
-  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
-  nav.stuck{background:rgba(8,8,11,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;max-width:1180px;margin:0 auto;padding:0 24px}
-  .logo{font-family:var(--serif);font-weight:800;font-size:1.12rem;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-  .logo .spark{width:11px;height:11px;border-radius:50%;background:var(--grad);box-shadow:0 0 12px rgba(255,122,77,.8)}
-  .navlinks{display:flex;gap:26px;align-items:center}
-  .navlinks a{font-size:.85rem;color:var(--mut);font-weight:500;transition:color .2s}
-  .navlinks a:hover{color:var(--ink)}
-  @media(max-width:860px){.navlinks a:not(.navcta){display:none}}
+  /* ---------- photo placeholders ---------- */
+  .ph{position:relative;border:1px solid var(--line);background:
+      repeating-linear-gradient(-45deg,transparent 0 14px,color-mix(in srgb,var(--ink) 3%,transparent) 14px 15px),
+      linear-gradient(160deg,color-mix(in srgb,var(--wine) 7%,var(--card)),var(--card));
+      display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ph-tag{position:absolute;top:12px;left:12px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);font-weight:700}
+  .ph-note{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--muted);text-align:center;max-width:34ch;padding:24px}
+  .ph-dim{position:absolute;bottom:12px;right:14px;font-size:.62rem;letter-spacing:.1em;color:var(--muted);font-variant-numeric:tabular-nums}
+  .hero-ph{aspect-ratio:21/9;margin:64px 0 0}
 
-  /* ---- buttons ---- */
-  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--grad);color:#160a06;font-weight:700;padding:14px 26px;border-radius:999px;font-size:.95rem;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;background-size:160% 160%;background-position:0 50%}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,122,77,.32);background-position:100% 50%}
-  .btn-ghost{background:transparent;border:1px solid var(--line2);color:var(--ink);padding:13px 24px}
-  .btn-ghost:hover{border-color:var(--f2);box-shadow:none}
-  .navcta{background:var(--grad);color:#160a06;padding:9px 18px;border-radius:999px;font-weight:700;font-size:.82rem}
-  .navcta:hover{color:#160a06}
+  /* ---------- sections ---------- */
+  section{padding:76px 0}
+  .course{display:flex;align-items:center;gap:18px;margin:0 0 14px}
+  .course span{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:700;white-space:nowrap}
+  .course::after{content:"";height:1px;background:var(--line);flex:1}
+  h2{font-family:var(--display);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15;margin:0 0 14px;text-wrap:balance;max-width:24ch}
+  .sub{color:var(--muted);max-width:58ch;margin:0 0 42px}
 
-  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+  .stat{background:var(--card);padding:28px 24px}
+  .stat b{display:block;font-family:var(--display);font-weight:500;font-size:2rem;color:var(--wine);font-variant-numeric:tabular-nums;margin-bottom:6px}
+  .stat span{font-size:.85rem;color:var(--muted)}
+  .foot-note{font-size:.72rem;color:var(--muted);margin-top:14px}
 
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+  /* ---------- calculator ---------- */
+  .calc{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);display:grid;grid-template-columns:1.2fr 1fr}
+  @media(max-width:760px){.calc{grid-template-columns:1fr}}
+  .calc-controls{padding:36px 36px 40px;display:flex;flex-direction:column;gap:30px}
+  .ctl label{display:flex;justify-content:space-between;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+  .ctl output{color:var(--wine);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--wine)}
+  .calc-result{background:var(--wine);color:#F7F0EB;padding:36px;display:flex;flex-direction:column;justify-content:center}
+  .calc-result small{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75;font-weight:600}
+  .calc-result b{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,4.5vw,3.2rem);line-height:1.1;font-variant-numeric:tabular-nums;margin:10px 0 4px}
+  .calc-result span{font-size:.85rem;opacity:.8}
 
-  /* ---- hero ---- */
-  .hero{padding:150px 0 90px;position:relative}
-  .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
-  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);padding:7px 15px;border-radius:999px;font-size:.76rem;color:var(--mut);font-weight:500}
-  .pill b{color:var(--ink);font-weight:600}
-  .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 8px var(--good)}
-  .hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.7rem,6.6vw,5.4rem);line-height:1.01;letter-spacing:-.025em;margin:0 0 24px;max-width:16ch}
-  .hero h1 em{font-style:italic}
-  .hero .lead{font-size:clamp(1.08rem,2vw,1.32rem);color:var(--mut);max-width:60ch;margin-bottom:34px}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .undernote{margin-top:20px;font-size:.82rem;color:var(--dim)}
+  /* ---------- packages ---------- */
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  @media(max-width:880px){.pkg-grid{grid-template-columns:1fr;max-width:480px}}
+  .pkg{background:var(--card);border:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .pkg.featured{border-color:var(--wine);position:relative}
+  .pkg.featured::before{content:"Most booked";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--wine);color:var(--paper);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:4px 12px}
+  .pkg h3{font-family:var(--display);font-weight:500;font-size:1.5rem;margin:0 0 4px}
+  .pkg .occasion{font-size:.78rem;color:var(--brass);letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+  .price{display:flex;align-items:baseline;gap:6px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:20px}
+  .price b{font-family:var(--display);font-weight:500;font-size:2rem;font-variant-numeric:tabular-nums}
+  .price span{font-size:.8rem;color:var(--muted)}
+  .pkg h4{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin:18px 0 8px;font-weight:700}
+  .pkg ul{list-style:none;margin:0;padding:0;font-size:.88rem}
+  .pkg li{padding:5px 0 5px 18px;position:relative;color:var(--ink)}
+  .pkg li::before{content:"·";position:absolute;left:2px;color:var(--wine);font-weight:700}
+  .menu-line{font-family:var(--display);font-style:italic;font-size:.92rem;color:var(--muted);padding:3px 0}
+  .pkg .mins{margin-top:auto;padding-top:20px;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .pkg-ph{aspect-ratio:4/3;margin-bottom:22px}
 
-  /* ---- section scaffolding ---- */
-  section{padding:92px 0;position:relative}
-  .sec-head{max-width:720px;margin-bottom:52px}
-  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-  .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.4vw,3.3rem);letter-spacing:-.015em;line-height:1.08;margin:14px 0 16px}
-  .sec-head p{color:var(--mut);font-size:1.06rem}
+  /* ---------- add-ons ---------- */
+  .addons{margin-top:46px;border:1px solid var(--line);background:var(--card)}
+  .addons-head{padding:18px 28px;border-bottom:1px solid var(--line);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:700}
+  .addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .addon{padding:20px 28px;border-bottom:1px solid var(--line);border-right:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;font-size:.88rem}
+  .addon b{font-weight:600}
+  .addon i{font-style:normal;display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+  .addon .p{color:var(--wine);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  /* ---- stat cards ---- */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 24px;transition:border-color .3s,transform .3s}
-  .stat:hover{border-color:var(--line2);transform:translateY(-4px)}
-  .stat .n{font-family:var(--serif);font-weight:700;font-size:2.6rem;line-height:1;letter-spacing:-.02em}
-  .stat .l{color:var(--mut);font-size:.92rem;margin-top:10px}
-  .stat .s{color:var(--dim);font-size:.76rem;margin-top:8px}
+  /* ---------- experience beats ---------- */
+  .beats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+  .beat{border-top:2px solid var(--wine);padding-top:18px}
+  .beat small{font-size:.68rem;letter-spacing:.2em;color:var(--brass);text-transform:uppercase;font-weight:700}
+  .beat h3{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:8px 0 8px}
+  .beat p{font-size:.88rem;color:var(--muted);margin:0}
 
-  /* ---- calculator ---- */
-  .calc-sec{background:linear-gradient(180deg,transparent,rgba(255,122,77,.04),transparent)}
-  .calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
-  @media(max-width:860px){.calc{grid-template-columns:1fr}}
-  .calc-card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:32px}
-  .calc-inputs h3,.calc-out h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:6px}
-  .calc-inputs > p{color:var(--mut);font-size:.9rem;margin-bottom:24px}
-  .ctrl{margin-bottom:26px}
-  .ctrl .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-  .ctrl .top label{font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);font-weight:600}
-  .ctrl .top .val{font-family:var(--serif);font-size:1.5rem;font-weight:700}
-  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:rgba(255,255,255,.1);outline:none}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--grad);cursor:pointer;box-shadow:0 2px 10px rgba(255,122,77,.5);border:2px solid #120a08}
-  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--f2);cursor:pointer;border:2px solid #120a08}
-  .calc-out{background:linear-gradient(160deg,rgba(255,122,77,.12),rgba(240,80,138,.06));display:flex;flex-direction:column;justify-content:center}
-  .calc-out .biglabel{font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:var(--mut);font-weight:600}
-  .calc-out .big{font-family:var(--serif);font-weight:800;font-size:clamp(2.6rem,6vw,4rem);line-height:1;letter-spacing:-.02em;margin:8px 0 4px}
-  .calc-out .sub{color:var(--mut);font-size:.95rem;margin-bottom:26px}
-  .calc-rows{display:grid;gap:2px;border-top:1px solid var(--line);padding-top:20px}
-  .calc-row{display:flex;justify-content:space-between;padding:9px 0;font-size:.95rem}
-  .calc-row span:first-child{color:var(--mut)}
-  .calc-row span:last-child{font-family:var(--serif);font-weight:600;color:var(--ink)}
-  .calc-note{font-size:.74rem;color:var(--dim);margin-top:20px;line-height:1.5}
+  /* ---------- funnel ---------- */
+  .funnel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);counter-reset:step}
+  .fstep{background:var(--card);padding:26px 24px;counter-increment:step}
+  .fstep::before{content:counter(step,decimal-leading-zero);font-size:.7rem;letter-spacing:.15em;color:var(--brass);font-weight:700}
+  .fstep b{display:block;font-family:var(--display);font-weight:500;font-size:1.7rem;color:var(--wine);font-variant-numeric:tabular-nums;margin:8px 0 2px}
+  .fstep span{font-size:.82rem;color:var(--muted)}
 
-  /* ---- pillars ---- */
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media(max-width:900px){.pillars{grid-template-columns:1fr}}
-  .pillar{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:32px 30px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
-  .pillar:hover{transform:translateY(-5px);border-color:var(--line2)}
-  .pillar::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--grad);opacity:.9}
-  .pillar .num{font-family:var(--serif);font-weight:800;font-size:2.4rem;line-height:1;-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;background:var(--grad);opacity:.85}
-  .pillar h3{font-family:var(--serif);font-size:1.55rem;font-weight:600;margin:12px 0 10px}
-  .pillar p{color:var(--mut);font-size:.95rem;margin-bottom:18px}
-  .pillar ul{list-style:none}
-  .pillar li{font-size:.9rem;color:var(--ink);padding:8px 0 8px 26px;position:relative;border-top:1px solid rgba(255,255,255,.05)}
-  .pillar li::before{content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;border-radius:50%;background:var(--grad)}
+  /* ---------- chapters ---------- */
+  .chapters{border:1px solid var(--line);background:var(--card)}
+  .chapter{display:flex;gap:22px;align-items:baseline;padding:18px 28px;border-bottom:1px solid var(--line);font-size:.95rem}
+  .chapter:last-child{border-bottom:none}
+  .chapter small{font-variant-numeric:tabular-nums;color:var(--brass);font-weight:700;font-size:.75rem;letter-spacing:.1em}
+  .chapter span{color:var(--muted);font-size:.82rem;margin-left:auto;text-align:right}
+  @media(max-width:600px){.chapter span{display:none}}
 
-  /* ---- deep dives ---- */
-  .dive{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin:0 0 84px}
-  .dive:last-child{margin-bottom:0}
-  .dive.flip .divetext{order:2}
-  @media(max-width:860px){.dive{grid-template-columns:1fr;gap:28px}.dive.flip .divetext{order:0}}
-  .divetext .kicker{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600;margin-bottom:12px}
-  .divetext h3{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:600;line-height:1.12;margin-bottom:16px;letter-spacing:-.01em}
-  .divetext p{color:var(--mut);margin-bottom:16px}
-  .divetext .checks{list-style:none;margin-top:20px}
-  .divetext .checks li{padding:9px 0 9px 32px;position:relative;color:var(--ink);font-size:.95rem}
-  .divetext .checks li::before{content:"✓";position:absolute;left:0;top:8px;width:20px;height:20px;border-radius:50%;background:rgba(95,211,154,.14);color:var(--good);font-size:.72rem;display:flex;align-items:center;justify-content:center;font-weight:800}
-  .visual{border:1px solid var(--line);border-radius:22px;padding:28px;background:linear-gradient(160deg,var(--panel2),transparent);min-height:280px}
-
-  /* package mock */
-  .pkgmock{display:grid;gap:12px}
-  .pkgmock .tier{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel);position:relative}
-  .pkgmock .tier.hot{border-color:var(--f2);background:linear-gradient(120deg,rgba(255,122,77,.12),var(--panel))}
-  .pkgmock .tier .r{display:flex;justify-content:space-between;align-items:center}
-  .pkgmock .tier h4{font-family:var(--serif);font-size:1.15rem;font-weight:600}
-  .pkgmock .tier .p{font-family:var(--serif);font-weight:700;font-size:1.15rem}
-  .pkgmock .tier small{color:var(--dim);font-size:.78rem}
-  .tag-hot{position:absolute;top:-9px;right:14px;background:var(--grad);color:#160a06;font-size:.64rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
-
-  /* experience mock */
-  .expmock{display:grid;gap:14px}
-  .moment{display:flex;gap:14px;align-items:flex-start}
-  .moment .ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#160a06}
-  .moment .mt{font-weight:600;font-size:.95rem}
-  .moment .md{color:var(--mut);font-size:.85rem}
-
-  /* ---- funnel ---- */
-  .funnel-sec{background:linear-gradient(180deg,transparent,rgba(162,75,214,.05),transparent)}
-  .funnel{display:grid;gap:12px;max-width:820px;margin:0 auto}
-  .fstep{border:1px solid var(--line);border-radius:16px;padding:18px 22px;background:var(--panel);position:relative;overflow:hidden;opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-  .fstep.in{opacity:1;transform:none}
-  .fstep .fbar{position:absolute;inset:0;background:var(--grad);opacity:.14;transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .15s}
-  .fstep.in .fbar{transform:scaleX(var(--w))}
-  .fstep .fin{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-  .fstep .fl{font-weight:600}
-  .fstep .fl small{display:block;color:var(--mut);font-weight:400;font-size:.82rem;margin-top:2px}
-  .fstep .fv{font-family:var(--serif);font-weight:700;font-size:1.5rem;white-space:nowrap}
-  .fstep .fv b{font-size:.8rem;color:var(--dim);font-weight:500;font-family:var(--sans)}
-  .funnel-foot{text-align:center;margin-top:26px;color:var(--mut);font-size:.95rem}
-  .funnel-foot b{color:var(--ink)}
-
-  /* ---- chapters ---- */
-  .chapters{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  @media(max-width:760px){.chapters{grid-template-columns:1fr}}
-  .chap{display:flex;gap:18px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:20px 22px;background:var(--panel);transition:border-color .3s,transform .3s}
-  .chap:hover{border-color:var(--line2);transform:translateY(-3px)}
-  .chap .cn{font-family:var(--serif);font-weight:700;font-size:1.2rem;-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;background:var(--grad);flex:none;width:34px}
-  .chap h4{font-size:1rem;font-weight:600;margin-bottom:4px}
-  .chap p{color:var(--mut);font-size:.85rem}
-
-  /* ---- example CTA band ---- */
-  .band{background:linear-gradient(150deg,rgba(255,122,77,.14),rgba(162,75,214,.12));border:1px solid var(--line2);border-radius:28px;padding:56px 48px;text-align:center;position:relative;overflow:hidden}
-  .band::after{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 0,rgba(255,194,75,.18),transparent 70%)}
-  .band > *{position:relative}
-  .band h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.08;margin-bottom:16px;letter-spacing:-.01em}
-  .band p{color:var(--mut);max-width:56ch;margin:0 auto 28px;font-size:1.05rem}
-  .band .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-  /* ---- final CTA ---- */
-  .final{text-align:center}
-  .final h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
-  .final p{color:var(--mut);max-width:52ch;margin:0 auto 30px;font-size:1.08rem}
-
-  footer{border-top:1px solid var(--line);padding:48px 0 40px;color:var(--dim);font-size:.85rem}
-  .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
-  footer .logo{color:var(--ink);font-size:1.05rem}
-  .foot-note{max-width:52ch;line-height:1.6}
+  /* ---------- closing ---------- */
+  .closing{text-align:center;padding:90px 0 100px;border-top:1px solid var(--line)}
+  .closing h2{margin:0 auto 16px}
+  .closing .sub{margin:0 auto 34px}
+  footer{border-top:1px solid var(--line);padding:26px 0;font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </style>
 </head>
 <body>
-  <div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
-  <div class="grain"></div>
-  <div class="progress" id="progress"></div>
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#top">The Private Events <em>Playbook</em></a>
+    <nav class="nav-links">
+      <a href="#case">The Case</a>
+      <a href="#calc">The Math</a>
+      <a href="#packages">Packages</a>
+      <a href="#funnel">The Funnel</a>
+      <a href="#chapters">Playbook</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-in">
-      <a href="#top" class="logo"><span class="spark"></span>The Private&nbsp;Events&nbsp;Playbook</a>
-      <div class="navlinks">
-        <a href="#why">The Case</a>
-        <a href="#calc">Revenue Calc</a>
-        <a href="#system">The System</a>
-        <a href="#funnel">The Funnel</a>
-        <a href="example.html" class="navcta">See a live example →</a>
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <p class="eyebrow">A revenue system for restaurants</p>
+      <h1>Sell the <em>room</em>, not just the seats.</h1>
+      <p class="lede">Private events are the highest-margin covers you'll ever serve — guaranteed minimums, prepaid contracts, and full rooms on your slowest nights. This playbook shows you how to package, price, and fill them.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#packages">See the packages</a>
+        <a class="btn btn-ghost" href="#calc">Run your numbers</a>
+      </div>
+      <div class="ph hero-ph">
+        <span class="ph-tag">Photo</span>
+        <p class="ph-note">Long candlelit table mid-toast, shot from the head of the table — warm light, glasses raised, room slightly out of focus behind.</p>
+        <span class="ph-dim">21 : 9 · ≥2400px wide</span>
       </div>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="wrap reveal in">
-      <div class="badge-row">
-        <span class="pill"><span class="dot"></span> The complete restaurant playbook</span>
-        <span class="pill"><b>Package</b> · <b>Experience</b> · <b>Convert</b></span>
-      </div>
-      <h1>The most profitable night in your restaurant is the one <em class="grad-text">you're not booking.</em></h1>
-      <p class="lead">Private events are the highest-margin, most predictable revenue a restaurant can sell — guaranteed spend, off-peak nights, guests who arrive already excited. This is the playbook for building that pillar: how to <b style="color:var(--ink)">package</b> it, how to design an <b style="color:var(--ink)">experience</b> people brag about, and how to <b style="color:var(--ink)">convert</b> a paid ad into a booked celebration.</p>
-      <div class="hero-cta">
-        <a href="#calc" class="btn">Run your numbers →</a>
-        <a href="example.html" class="btn btn-ghost">See a live example page</a>
-      </div>
-      <div class="undernote">Free to read · Built for owners, GMs &amp; private-dining managers · A working demo included</div>
-    </div>
-  </header>
+  </div>
 
   <!-- THE CASE -->
-  <section id="why">
+  <section id="case">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div class="eyebrow">Why this pillar matters</div>
-        <h2>One room can change your P&amp;L.</h2>
-        <p>Your dining room is capped by seats and hours. A private-events program isn't — it sells the <em>same</em> space at a higher spend, on the nights you're quietest, to people who commit in advance. Here's the shape of the opportunity.</p>
+      <div class="course"><span>First · The Case</span></div>
+      <h2>Your slowest night is your biggest opportunity.</h2>
+      <p class="sub">A booked private room outperforms a regular service on every line of the P&amp;L — and it happens on the nights you'd otherwise write off.</p>
+      <div class="stats">
+        <div class="stat"><b>1.8×</b><span>Higher spend per guest vs. à la carte service</span></div>
+        <div class="stat"><b>100%</b><span>Revenue guaranteed by contracted minimums</span></div>
+        <div class="stat"><b>Mon–Wed</b><span>Off-peak nights converted into full rooms</span></div>
+        <div class="stat"><b>40+</b><span>New guests walk through your door per event</span></div>
       </div>
-      <div class="stats reveal">
-        <div class="stat">
-          <div class="n"><span class="grad-text" data-count="2.5" data-dec="1" data-suffix="×">0</span></div>
-          <div class="l">Spend per guest vs. à la carte</div>
-          <div class="s">Set menus + beverage packages lift the check</div>
-        </div>
-        <div class="stat">
-          <div class="n"><span class="grad-text" data-count="100" data-suffix="%">0</span></div>
-          <div class="l">Guaranteed minimum spend</div>
-          <div class="s">Contracted before a single guest walks in</div>
-        </div>
-        <div class="stat">
-          <div class="n"><span class="grad-text" data-count="70" data-suffix="%">0</span></div>
-          <div class="l">Books your slow nights</div>
-          <div class="s">Mon–Wed &amp; afternoons become revenue</div>
-        </div>
-        <div class="stat">
-          <div class="n"><span class="grad-text" data-count="30" data-suffix="+">0</span></div>
-          <div class="l">New guests per event</div>
-          <div class="s">Every party is a room full of future regulars</div>
-        </div>
-      </div>
-      <p style="color:var(--dim);font-size:.8rem;margin-top:22px;max-width:70ch">Figures are illustrative benchmarks to frame the opportunity — plug your own numbers into the calculator below to see what it means for <em>your</em> restaurant.</p>
+      <p class="foot-note">Figures are illustrative benchmarks — plug in your own numbers below.</p>
     </div>
   </section>
 
   <!-- CALCULATOR -->
-  <section id="calc" class="calc-sec">
+  <section id="calc">
     <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">The revenue calculator</div>
-        <h2>What could private events add to your year?</h2>
-        <p>Drag the sliders to match your restaurant. This is the number that turns "someday" into a line item.</p>
-      </div>
-      <div class="calc reveal">
-        <div class="calc-card calc-inputs">
-          <h3>Your inputs</h3>
-          <p>Rough is fine — you're sizing the prize, not building a budget.</p>
-          <div class="ctrl">
-            <div class="top"><label>Events per month</label><span class="val" id="vEvents">6</span></div>
-            <input type="range" id="events" min="1" max="30" value="6">
+      <div class="course"><span>Second · The Math</span></div>
+      <h2>What is the room worth to you?</h2>
+      <p class="sub">Three sliders. No spreadsheet. This is annual private-events revenue on top of your regular service.</p>
+      <div class="calc">
+        <div class="calc-controls">
+          <div class="ctl">
+            <label for="ev">Events per month <output id="evOut">6</output></label>
+            <input type="range" id="ev" min="1" max="20" value="6">
           </div>
-          <div class="ctrl">
-            <div class="top"><label>Avg. guests per event</label><span class="val" id="vGuests">40</span></div>
-            <input type="range" id="guests" min="8" max="200" value="40" step="2">
+          <div class="ctl">
+            <label for="gs">Guests per event <output id="gsOut">40</output></label>
+            <input type="range" id="gs" min="10" max="120" step="5" value="40">
           </div>
-          <div class="ctrl">
-            <div class="top"><label>Spend per guest</label><span class="val" id="vSpend">$95</span></div>
-            <input type="range" id="spend" min="40" max="300" value="95" step="5">
+          <div class="ctl">
+            <label for="sp">Spend per guest <output id="spOut">$95</output></label>
+            <input type="range" id="sp" min="40" max="250" step="5" value="95">
           </div>
         </div>
-        <div class="calc-card calc-out">
-          <div class="biglabel">Added annual revenue</div>
-          <div class="big grad-text" id="outAnnual">$273,600</div>
-          <div class="sub">That's roughly <b id="outMonthly" style="color:var(--ink)">$22,800</b> a month in new, high-margin sales.</div>
-          <div class="calc-rows">
-            <div class="calc-row"><span>Revenue per event</span><span id="outEvent">$3,800</span></div>
-            <div class="calc-row"><span>Events per year</span><span id="outEvents">72</span></div>
-            <div class="calc-row"><span>New guests introduced / year</span><span id="outCovers">2,880</span></div>
-          </div>
-          <div class="calc-note">Illustrative estimate = events × guests × spend, before costs. Real margins vary, but private events typically carry lower labor-per-cover and near-zero no-show risk thanks to contracted minimums and deposits.</div>
+        <div class="calc-result">
+          <small>Annual event revenue</small>
+          <b id="total">$273,600</b>
+          <span id="monthly">$22,800 per month, contracted before anyone walks in.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE SYSTEM -->
-  <section id="system">
+  <!-- PACKAGES -->
+  <section id="packages">
     <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">The system</div>
-        <h2>Three levers turn a room into a revenue engine.</h2>
-        <p>Every high-performing private-events program does the same three things well. Get one right and you'll book. Get all three right and you'll be turning parties away.</p>
+      <div class="course"><span>Third · The Packages</span></div>
+      <h2>Three tiers. Priced, plated, and ready to sell.</h2>
+      <p class="sub">Never quote from scratch again. A guest should choose a package the way they choose an entrée — from a short, confident menu. Here's a complete example set to adapt to your room.</p>
+
+      <div class="pkg-grid">
+        <!-- TIER 1 -->
+        <div class="pkg">
+          <div class="ph pkg-ph">
+            <span class="ph-tag">Photo</span>
+            <p class="ph-note">Family-style platters landing on a shared table, hands serving.</p>
+            <span class="ph-dim">4 : 3</span>
+          </div>
+          <h3>The Gathering</h3>
+          <p class="occasion">Birthdays · Team dinners</p>
+          <div class="price"><b>$75</b><span>per guest</span></div>
+          <h4>Sample menu</h4>
+          <p class="menu-line">Warm sourdough &amp; whipped butter</p>
+          <p class="menu-line">Family-style: roast chicken, charred broccolini, crispy potatoes</p>
+          <p class="menu-line">Seasonal fruit crostata to share</p>
+          <h4>Included</h4>
+          <ul>
+            <li>Semi-private dining section, up to 24 guests</li>
+            <li>Three courses served family-style</li>
+            <li>Printed single-page menu</li>
+            <li>Dedicated server team</li>
+            <li>2.5-hour reservation window</li>
+          </ul>
+          <p class="mins">Food &amp; beverage minimum $1,200 · Sun–Thu</p>
+        </div>
+
+        <!-- TIER 2 -->
+        <div class="pkg featured">
+          <div class="ph pkg-ph">
+            <span class="ph-tag">Photo</span>
+            <p class="ph-note">Private room set for a plated dinner — stemware, low florals, name cards.</p>
+            <span class="ph-dim">4 : 3</span>
+          </div>
+          <h3>The Celebration</h3>
+          <p class="occasion">Rehearsal dinners · Holiday parties</p>
+          <div class="price"><b>$110</b><span>per guest</span></div>
+          <h4>Sample menu</h4>
+          <p class="menu-line">Welcome cocktail &amp; passed canapés</p>
+          <p class="menu-line">Plated: burrata &amp; stone fruit, choice of ribeye or branzino</p>
+          <p class="menu-line">Chocolate torte, coffee service</p>
+          <h4>Included</h4>
+          <ul>
+            <li>Full private room, up to 48 guests</li>
+            <li>Four plated courses with entrée choice</li>
+            <li>Welcome cocktail on arrival</li>
+            <li>Dedicated event captain</li>
+            <li>Custom-printed menus &amp; place cards</li>
+            <li>House sound system &amp; toast mic</li>
+            <li>3.5-hour reservation window</li>
+          </ul>
+          <p class="mins">Food &amp; beverage minimum $3,500 · any night</p>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="pkg">
+          <div class="ph pkg-ph">
+            <span class="ph-tag">Photo</span>
+            <p class="ph-note">Chef presenting a course tableside in a full-buyout room, guests leaning in.</p>
+            <span class="ph-dim">4 : 3</span>
+          </div>
+          <h3>The Signature</h3>
+          <p class="occasion">Weddings · Full buyouts · Corporate</p>
+          <div class="price"><b>From $150</b><span>per guest</span></div>
+          <h4>Sample menu</h4>
+          <p class="menu-line">Champagne &amp; oyster reception</p>
+          <p class="menu-line">Five-course chef's tasting, built with you</p>
+          <p class="menu-line">Sommelier-selected wine pairings</p>
+          <h4>Included</h4>
+          <ul>
+            <li>Full restaurant buyout, up to 120 guests</li>
+            <li>Menu designed with the executive chef</li>
+            <li>Wine pairings or open premium bar</li>
+            <li>Event captain + coordinator planning calls</li>
+            <li>Custom menu cards, florals coordination</li>
+            <li>Live music &amp; valet arrangements available</li>
+            <li>Full-evening exclusivity</li>
+          </ul>
+          <p class="mins">Minimum by date · proposal within 24 hours</p>
+        </div>
       </div>
-      <div class="pillars reveal">
-        <div class="pillar">
-          <div class="num">01</div>
-          <h3>Package</h3>
-          <p>Stop selling a blank canvas. Sell a decision. Clear tiers, all-in pricing, and a minimum make "yes" easy.</p>
-          <ul>
-            <li>3 tiers — good / better / signature</li>
-            <li>Per-guest pricing + a booking minimum</li>
-            <li>Named around occasions, not room numbers</li>
-            <li>One obvious "most popular" choice</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="num">02</div>
-          <h3>Experience</h3>
-          <p>People don't remember the menu — they remember the moment. Engineer the beats that make guests brag.</p>
-          <ul>
-            <li>A signature welcome the second they arrive</li>
-            <li>One dedicated host who owns the night</li>
-            <li>A "wow" beat built for phones &amp; toasts</li>
-            <li>A send-off that earns the referral</li>
-          </ul>
-        </div>
-        <div class="pillar">
-          <div class="num">03</div>
-          <h3>Convert</h3>
-          <p>Demand exists — you just have to catch it. A tight ad-to-landing-page funnel fills the inquiry inbox.</p>
-          <ul>
-            <li>Occasion-targeted ads that stop the scroll</li>
-            <li>A landing page built to answer "does it fit?"</li>
-            <li>A short, high-intent inquiry form</li>
-            <li>A same-day follow-up that closes</li>
-          </ul>
+
+      <!-- ADD-ONS -->
+      <div class="addons">
+        <div class="addons-head">Add-ons · every tier</div>
+        <div class="addons-grid">
+          <div class="addon"><div><b>Wine pairing</b><i>Three pours matched to the menu</i></div><span class="p">+$35 / guest</span></div>
+          <div class="addon"><div><b>Raw bar hour</b><i>Oysters, shrimp, crudo on arrival</i></div><span class="p">+$24 / guest</span></div>
+          <div class="addon"><div><b>Late-night bites</b><i>Sliders &amp; fries at the send-off</i></div><span class="p">+$14 / guest</span></div>
+          <div class="addon"><div><b>Signature cocktail</b><i>Named for the guest of honor</i></div><span class="p">+$16 / guest</span></div>
+          <div class="addon"><div><b>Cake &amp; dessert service</b><i>In-house or plated outside cake</i></div><span class="p">+$8 / guest</span></div>
+          <div class="addon"><div><b>Extended hour</b><i>Keep the room past the window</i></div><span class="p">+$350 / hour</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DEEP DIVES -->
-  <section style="padding-top:20px">
+  <!-- EXPERIENCE -->
+  <section id="experience">
     <div class="wrap">
-
-      <!-- PACKAGE -->
-      <div class="dive reveal">
-        <div class="divetext">
-          <div class="kicker">Lever 01 — Package</div>
-          <h3>Pick a package, not a puzzle.</h3>
-          <p>The fastest way to kill a booking is to make someone design their own event from scratch. Overwhelmed planners don't reply. Give them three confident choices and a clear minimum, and you move the conversation from "how much would it be?" to "which one fits?"</p>
-          <p>Anchor with a premium tier, make the middle the obvious pick, and price per guest so the total scales itself.</p>
-          <ul class="checks">
-            <li>Name tiers for the feeling, not the food — "The Celebration," not "Menu B"</li>
-            <li>Bundle the friction in: space, service, AV, a cake option</li>
-            <li>Publish minimums so unqualified leads self-select out</li>
-            <li>Always have one "most popular" to break decision paralysis</li>
-          </ul>
-        </div>
-        <div class="visual">
-          <div class="pkgmock">
-            <div class="tier"><div class="r"><h4>The Gathering</h4><div class="p">$75<small>/guest</small></div></div><small>Family-style · 2-hr space · 20 min</small></div>
-            <div class="tier hot"><span class="tag-hot">Most popular</span><div class="r"><h4>The Celebration</h4><div class="p">$110<small>/guest</small></div></div><small>Chef menu · welcome cocktail · AV · 30 min</small></div>
-            <div class="tier"><div class="r"><h4>The Signature</h4><div class="p">Custom</div></div><small>Full buyout · bespoke menu · event lead</small></div>
-          </div>
-        </div>
+      <div class="course"><span>Fourth · The Experience</span></div>
+      <h2>Engineer four moments. The reviews write themselves.</h2>
+      <p class="sub">A great private event isn't a long dinner — it's a short story. Script these beats into every package and hosts will rebook before dessert.</p>
+      <div class="beats">
+        <div class="beat"><small>01 · Arrival</small><h3>The Welcome</h3><p>Coats taken, host greeted by name, a glass in hand within ninety seconds of the door.</p></div>
+        <div class="beat"><small>02 · Dinner</small><h3>The Reveal</h3><p>One theatrical course — the tableside pour, the carving, the flame — that everyone photographs.</p></div>
+        <div class="beat"><small>03 · Peak</small><h3>The Toast</h3><p>Lights nudge down, mic appears, the captain cues the host. The moment the night is remembered by.</p></div>
+        <div class="beat"><small>04 · Exit</small><h3>The Send-off</h3><p>A wrapped treat and a handwritten card at the door — with the booking link for next year on the back.</p></div>
       </div>
-
-      <!-- EXPERIENCE -->
-      <div class="dive flip reveal">
-        <div class="divetext">
-          <div class="kicker">Lever 02 — Experience</div>
-          <h3>Design the moment they'll retell.</h3>
-          <p>A private event is theater. The food has to be great — but greatness is the price of entry. What earns the five-star review and the "who did you use?" text is a sequence of engineered moments that feel effortless to the guest and are anything but to you.</p>
-          <p>Map the night as beats. Own the arrival, the reveal, and the send-off, and the middle takes care of itself.</p>
-          <ul class="checks">
-            <li>A named event lead so the host never hunts for someone</li>
-            <li>One signature moment worth filming and posting</li>
-            <li>Small personal touches — the guest of honor's name, in print</li>
-            <li>A graceful close that makes the next booking feel obvious</li>
-          </ul>
-        </div>
-        <div class="visual">
-          <div class="expmock">
-            <div class="moment"><div class="ic">✦</div><div><div class="mt">Arrival</div><div class="md">Name on the door, a drink already in hand.</div></div></div>
-            <div class="moment"><div class="ic">🔥</div><div><div class="mt">The reveal</div><div class="md">A tableside or open-kitchen moment that turns heads.</div></div></div>
-            <div class="moment"><div class="ic">🥂</div><div><div class="mt">The toast</div><div class="md">AV cued, lights dimmed, a beat built for the phones.</div></div></div>
-            <div class="moment"><div class="ic">💌</div><div><div class="mt">The send-off</div><div class="md">A small parting gift — and a card to book again.</div></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONVERT -->
-      <div class="dive reveal">
-        <div class="divetext">
-          <div class="kicker">Lever 03 — Convert</div>
-          <h3>From a scroll-stopping ad to a booked event.</h3>
-          <p>Most restaurants "do private events" with a buried page and a generic email address. That's not a program — it's a hope. A real funnel starts with an occasion-specific ad, sends traffic to a page built for one job, and captures a qualified inquiry while intent is hot.</p>
-          <p>The landing page's entire purpose is to answer three questions fast: <em>Does it fit my group? Can I picture it? How do I ask?</em></p>
-          <ul class="checks">
-            <li>Ads targeted by occasion — holiday parties, milestones, corporate</li>
-            <li>A fit-checker so guests instantly see the right space</li>
-            <li>A short form that asks only what qualifies the lead</li>
-            <li>A Meta <em>Lead</em> event so ad spend optimizes toward bookings</li>
-          </ul>
-          <a href="example.html" class="btn" style="margin-top:26px">See the landing page in action →</a>
-        </div>
-        <div class="visual" style="display:flex;align-items:center;justify-content:center;text-align:center">
-          <div>
-            <div style="font-family:var(--serif);font-size:1.1rem;color:var(--mut);margin-bottom:18px">The path a guest takes</div>
-            <div style="display:flex;flex-direction:column;gap:10px;font-size:.92rem">
-              <div class="pill" style="justify-content:center">📱 Sees an ad — "Host your holiday party here"</div>
-              <div style="color:var(--dim)">↓</div>
-              <div class="pill" style="justify-content:center">🖥️ Lands on a page built to convert</div>
-              <div style="color:var(--dim)">↓</div>
-              <div class="pill" style="justify-content:center">✅ Checks their headcount fits a space</div>
-              <div style="color:var(--dim)">↓</div>
-              <div class="pill" style="justify-content:center;border-color:var(--f2)">✉️ Sends an inquiry — <b>you follow up same day</b></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- FUNNEL MATH -->
-  <section id="funnel" class="funnel-sec">
+  <!-- FUNNEL -->
+  <section id="funnel">
     <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">The conversion math</div>
-        <h2>How a month of ad spend becomes booked events.</h2>
-        <p>You don't need viral reach — you need a tight funnel. Here's an illustrative month showing how a modest audience turns into real bookings when each step is built to convert.</p>
-      </div>
+      <div class="course"><span>Fifth · The Funnel</span></div>
+      <h2>From scroll to signed contract.</h2>
+      <p class="sub">Occasion-targeted ads point to a landing page that sells the room, not the restaurant. Illustrative math for one month of a modest ad budget:</p>
       <div class="funnel">
-        <div class="fstep" style="--w:1"><div class="fbar"></div><div class="fin"><div class="fl">Ad impressions<small>Occasion-targeted, locally</small></div><div class="fv">40,000</div></div></div>
-        <div class="fstep" style="--w:.62"><div class="fbar"></div><div class="fin"><div class="fl">Landing-page visits<small>~2% click a relevant ad</small></div><div class="fv">800 <b>· 2% CTR</b></div></div></div>
-        <div class="fstep" style="--w:.4"><div class="fbar"></div><div class="fin"><div class="fl">Inquiries submitted<small>~8% of a well-built page converts</small></div><div class="fv">64 <b>· 8% form rate</b></div></div></div>
-        <div class="fstep" style="--w:.24"><div class="fbar"></div><div class="fin"><div class="fl">Booked events<small>~30% close with fast follow-up</small></div><div class="fv">19 <b>· 30% close</b></div></div></div>
+        <div class="fstep"><b>40,000</b><span>Impressions — targeted at engagements, promotions &amp; December parties</span></div>
+        <div class="fstep"><b>800</b><span>Landing-page visits at a 2% click-through</span></div>
+        <div class="fstep"><b>64</b><span>Inquiries at an 8% form conversion</span></div>
+        <div class="fstep"><b>19</b><span>Booked events at a 30% close rate</span></div>
       </div>
-      <div class="funnel-foot reveal">At an illustrative <b>$110/guest × 40 guests</b>, those 19 events are <b class="grad-text">~$83,000</b> in booked revenue from one month's funnel. <span style="color:var(--dim)">Rates shown are planning benchmarks — your creative, targeting, and follow-up move every number.</span></div>
     </div>
   </section>
 
   <!-- CHAPTERS -->
-  <section id="guide">
+  <section id="chapters">
     <div class="wrap">
-      <div class="sec-head center reveal">
-        <div class="eyebrow">The full playbook</div>
-        <h2>Everything, chapter by chapter.</h2>
-        <p>The complete guide to standing up a private-events pillar — from the first package to a funnel that fills itself.</p>
-      </div>
-      <div class="chapters reveal">
-        <div class="chap"><div class="cn">01</div><div><h4>The revenue case</h4><p>Why private events are your highest-margin, most predictable sales.</p></div></div>
-        <div class="chap"><div class="cn">02</div><div><h4>Designing packages that sell</h4><p>Tiers, minimums, and pricing that make "yes" the easy answer.</p></div></div>
-        <div class="chap"><div class="cn">03</div><div><h4>Engineering the experience</h4><p>The arrival, the reveal, the send-off — moments guests retell.</p></div></div>
-        <div class="chap"><div class="cn">04</div><div><h4>Pricing &amp; maximizing spend</h4><p>Beverage packages, upsells, and minimums that protect margin.</p></div></div>
-        <div class="chap"><div class="cn">05</div><div><h4>Ads that stop the scroll</h4><p>Occasion-led creative and targeting that reaches real planners.</p></div></div>
-        <div class="chap"><div class="cn">06</div><div><h4>The landing page that converts</h4><p>Structure, the fit-checker, and the psychology of the inquiry.</p></div></div>
-        <div class="chap"><div class="cn">07</div><div><h4>Inquiry to booked</h4><p>The same-day follow-up system that closes warm leads.</p></div></div>
-        <div class="chap"><div class="cn">08</div><div><h4>Measure &amp; scale</h4><p>The few numbers to track so the pillar compounds every quarter.</p></div></div>
+      <div class="course"><span>Sixth · The Playbook</span></div>
+      <h2>Eight chapters, start to booked.</h2>
+      <div class="chapters">
+        <div class="chapter"><small>01</small> The Revenue Case <span>Why events beat covers</span></div>
+        <div class="chapter"><small>02</small> Designing the Package Menu <span>Three tiers, no custom quotes</span></div>
+        <div class="chapter"><small>03</small> Engineering the Experience <span>The four scripted beats</span></div>
+        <div class="chapter"><small>04</small> Pricing &amp; Minimums <span>Margin math by night of week</span></div>
+        <div class="chapter"><small>05</small> Advertising the Room <span>Occasion targeting that converts</span></div>
+        <div class="chapter"><small>06</small> The Landing Page <span>One page, one form, one job</span></div>
+        <div class="chapter"><small>07</small> Follow-up &amp; Closing <span>From inquiry to signed contract</span></div>
+        <div class="chapter"><small>08</small> Measuring the Program <span>The five numbers that matter</span></div>
       </div>
     </div>
   </section>
 
-  <!-- EXAMPLE BAND -->
-  <section>
+  <!-- CLOSING -->
+  <div class="closing">
     <div class="wrap">
-      <div class="band reveal">
-        <div class="eyebrow">See it come together</div>
-        <h2>A live example page — for a restaurant that doesn't exist yet.</h2>
-        <p>We built a complete, conversion-ready landing page for a made-up restaurant, <b style="color:var(--ink)">Ember &amp; Vine</b>, so you can see every principle in this playbook working on a real page — spaces, packages, the fit-checker, and the inquiry form.</p>
-        <div class="btn-row">
-          <a href="example.html" class="btn">Open the Ember &amp; Vine example →</a>
-          <a href="#calc" class="btn btn-ghost">Back to the calculator</a>
-        </div>
-      </div>
+      <p class="eyebrow">See it in action</p>
+      <h2>Ember &amp; Vine — a complete worked example.</h2>
+      <p class="sub">Every principle in this playbook applied to one fictional restaurant: the packages, the ads, and the landing page that ties them together.</p>
+      <a class="btn btn-solid" href="example.html">View the Ember &amp; Vine example</a>
     </div>
-  </section>
+  </div>
+</main>
 
-  <!-- FINAL CTA -->
-  <section class="final">
-    <div class="wrap narrow reveal">
-      <div class="eyebrow" style="display:block;margin-bottom:14px">Start the pillar</div>
-      <h2>Your quietest night is a business you haven't opened yet.</h2>
-      <p>Package it. Make it unforgettable. Put it in front of the right people. That's the whole game — and now you have the playbook.</p>
-      <div class="hero-cta" style="justify-content:center">
-        <a href="example.html" class="btn">See the live example →</a>
-        <a href="#top" class="btn btn-ghost">Back to top</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap foot-in">
-      <div>
-        <div class="logo"><span class="spark"></span>The Private Events Playbook</div>
-        <div class="foot-note" style="margin-top:10px">A guide to building the most profitable pillar in your restaurant — packaging, experience, and the ad-to-booking funnel.</div>
-      </div>
-      <div class="foot-note" style="text-align:right">
-        All figures are illustrative planning benchmarks.<br>
-        Example content is fictional. · <a href="example.html" style="color:var(--mut);text-decoration:underline">View the example page</a>
-      </div>
-    </div>
-  </footer>
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
+    <span>The Private Events Playbook</span>
+    <span>Benchmarks are illustrative — run your own numbers.</span>
+  </div>
+</footer>
 
 <script>
-  // ---- scroll progress + sticky nav ----
-  const progress = document.getElementById('progress'), navEl = document.getElementById('nav');
-  function onScroll(){
-    const h = document.documentElement, scrolled = h.scrollTop, height = h.scrollHeight - h.clientHeight;
-    progress.style.width = (height>0 ? (scrolled/height)*100 : 0) + '%';
-    navEl.classList.toggle('stuck', scrolled > 40);
+  const ev=document.getElementById('ev'),gs=document.getElementById('gs'),sp=document.getElementById('sp');
+  const fmt=n=>'$'+n.toLocaleString('en-US');
+  function upd(){
+    document.getElementById('evOut').textContent=ev.value;
+    document.getElementById('gsOut').textContent=gs.value;
+    document.getElementById('spOut').textContent=fmt(+sp.value);
+    const monthly=ev.value*gs.value*sp.value;
+    document.getElementById('total').textContent=fmt(monthly*12);
+    document.getElementById('monthly').textContent=fmt(monthly)+' per month, contracted before anyone walks in.';
   }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  // ---- reveal on scroll ----
-  const io = new IntersectionObserver((ents)=>{ ents.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} }); },{threshold:.14});
-  document.querySelectorAll('.reveal, .fstep').forEach(el=>io.observe(el));
-
-  // ---- animated counters ----
-  function animateCount(el){
-    const target = parseFloat(el.dataset.count), dec = +(el.dataset.dec||0), suf = el.dataset.suffix||'', pre = el.dataset.prefix||'';
-    const dur = 1400, start = performance.now();
-    function tick(now){
-      const p = Math.min((now-start)/dur, 1), eased = 1-Math.pow(1-p,3), v = target*eased;
-      el.textContent = pre + v.toFixed(dec) + suf;
-      if(p<1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-  const cio = new IntersectionObserver((ents)=>{ ents.forEach(en=>{ if(en.isIntersecting){ animateCount(en.target); cio.unobserve(en.target);} }); },{threshold:.6});
-  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-
-  // ---- revenue calculator ----
-  const eEvents=document.getElementById('events'), eGuests=document.getElementById('guests'), eSpend=document.getElementById('spend');
-  const money = n => '$' + Math.round(n).toLocaleString('en-US');
-  function calc(){
-    const ev=+eEvents.value, g=+eGuests.value, s=+eSpend.value;
-    document.getElementById('vEvents').textContent = ev;
-    document.getElementById('vGuests').textContent = g;
-    document.getElementById('vSpend').textContent = money(s);
-    const perEvent = g*s, monthly = perEvent*ev, annual = monthly*12, coversYr = g*ev*12;
-    document.getElementById('outAnnual').textContent = money(annual);
-    document.getElementById('outMonthly').textContent = money(monthly);
-    document.getElementById('outEvent').textContent = money(perEvent);
-    document.getElementById('outEvents').textContent = (ev*12).toLocaleString('en-US');
-    document.getElementById('outCovers').textContent = coversYr.toLocaleString('en-US');
-  }
-  [eEvents,eGuests,eSpend].forEach(el=>el.addEventListener('input', calc));
-  calc();
+  [ev,gs,sp].forEach(el=>el.addEventListener('input',upd));
+  upd();
 </script>
 </body>
 </html>
