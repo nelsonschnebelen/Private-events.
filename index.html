@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Private Events Playbook — package, price all-in, and fill your restaurant&#39;s private room.">
-<title>The Private Events Playbook</title>
+<meta name="description" content="The Year-End Private Events Playbook — package December, price it all-in, and advertise it while attention is still cheap.">
+<title>The Year-End Private Events Playbook</title>
 <style>
   :root{
     color-scheme: dark;
@@ -13,7 +13,7 @@
     --text:#EFEDE8; --muted:#98A0AC; --dim:#6B7280;
     --ember:#FF7847; --ember2:#FFC65C; --gold:#E3B573;
     --grad:linear-gradient(92deg,#FF6A3D 0%,#FF8E4F 45%,#FFC65C 100%);
-    --good:#6FCF97;
+    --good:#6FCF97; --cool:#7FB2E5;
     --display:"Avenir Next","Helvetica Neue","Segoe UI",system-ui,sans-serif;
     --body:"Avenir Next","Helvetica Neue","Segoe UI",system-ui,sans-serif;
     --serif:Georgia,"Times New Roman",serif;
@@ -32,32 +32,39 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
   .wordmark{text-decoration:none;font-weight:700;letter-spacing:-.02em;font-size:1rem}
   .wordmark b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .nav-links{display:flex;gap:26px;align-items:center;font-size:.8rem}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:.8rem}
   .nav-links a{text-decoration:none;color:var(--muted);font-weight:500;letter-spacing:.02em}
   .nav-links a:hover{color:var(--text)}
   .nav-cta{padding:8px 16px;border:1px solid var(--line2);border-radius:999px;color:var(--text)!important}
   .nav-cta:hover{border-color:var(--ember);color:var(--ember)!important}
-  @media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+  @media(max-width:900px){.nav-links a:not(.nav-cta){display:none}}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:96px 0 40px;overflow:hidden}
+  .hero{position:relative;padding:88px 0 40px;overflow:hidden}
   .hero-glow{position:absolute;inset:0;pointer-events:none;background:
     radial-gradient(52% 42% at 78% 8%,rgba(255,120,71,.14),transparent 70%),
     radial-gradient(40% 34% at 12% 30%,rgba(255,198,92,.07),transparent 70%)}
   #embers{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.8}
   .hero-inner{position:relative}
-  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 26px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 24px}
   .kicker::before{content:"";width:26px;height:1px;background:var(--grad)}
-  h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;font-size:clamp(2.7rem,6.4vw,4.9rem);line-height:1.02;margin:0 0 22px;text-wrap:balance;max-width:15ch}
+  h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;font-size:clamp(2.6rem,6.2vw,4.8rem);line-height:1.02;margin:0 0 22px;text-wrap:balance;max-width:16ch}
   h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:1.1rem;color:var(--muted);max-width:54ch;margin:0 0 34px}
-  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .lede{font-size:1.1rem;color:var(--muted);max-width:56ch;margin:0 0 32px}
   .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;text-decoration:none;font-size:.88rem;font-weight:600;letter-spacing:.01em;border:1px solid transparent;transition:transform .15s,box-shadow .15s,border-color .15s;cursor:pointer;font-family:var(--body)}
   .btn-solid{background:var(--grad);color:#1A0E06;box-shadow:0 6px 24px rgba(255,120,71,.25)}
   .btn-solid:hover{transform:translateY(-1px);box-shadow:0 10px 30px rgba(255,120,71,.35)}
   .btn-ghost{border-color:var(--line2);color:var(--text)}
   .btn-ghost:hover{border-color:var(--ember);color:var(--ember)}
-  .hero-proof{display:flex;gap:26px;margin-top:38px;font-size:.78rem;color:var(--dim);flex-wrap:wrap}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+  /* countdown */
+  .countdown{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:34px 0 0;padding:18px 22px;border:1px solid rgba(255,120,71,.32);background:rgba(255,120,71,.06);border-radius:14px;max-width:640px}
+  .countdown .num{font-family:var(--display);font-weight:700;font-size:2.4rem;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .countdown .txt{font-size:.86rem;color:var(--muted);max-width:38ch}
+  .countdown .txt b{color:var(--text);font-weight:650}
+
+  .hero-proof{display:flex;gap:26px;margin-top:30px;font-size:.78rem;color:var(--dim);flex-wrap:wrap}
   .hero-proof span b{color:var(--text);font-weight:600}
 
   /* ---------- photos ---------- */
@@ -65,18 +72,29 @@
   .scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,17,.1) 55%,rgba(11,13,17,.72));pointer-events:none}
   .scene .cap{position:absolute;left:16px;bottom:12px;z-index:3;font-size:.72rem;color:rgba(239,237,232,.85);letter-spacing:.03em;text-shadow:0 1px 8px rgba(0,0,0,.6)}
-  .hero-scene{aspect-ratio:21/8;margin-top:64px}
+  .hero-scene{aspect-ratio:21/8;margin-top:56px}
   @media(max-width:640px){.hero-scene{aspect-ratio:16/10}}
 
   /* ---------- sections ---------- */
-  section{padding:84px 0}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:12px}
+  section{padding:82px 0}
   .tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
   h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(1.8rem,3.8vw,2.7rem);line-height:1.08;margin:6px 0 14px;text-wrap:balance;max-width:26ch}
   h2 em{font-family:var(--serif);font-style:italic;font-weight:400;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .sub{color:var(--muted);max-width:60ch;margin:0 0 44px}
+  .sub{color:var(--muted);max-width:62ch;margin:0 0 44px}
 
-  /* ---------- research insights ---------- */
+  /* ---------- season calendar ---------- */
+  .cal{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  @media(max-width:860px){.cal{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.cal{grid-template-columns:1fr}}
+  .mo{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;position:relative;overflow:hidden}
+  .mo.hot{border-color:rgba(255,120,71,.5);background:linear-gradient(180deg,rgba(255,120,71,.09),var(--card))}
+  .mo .m{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  .mo .st{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:8px 0 10px;display:inline-block;padding:3px 10px;border-radius:999px}
+  .mo.hot .st{background:var(--grad);color:#1A0E06}
+  .mo:not(.hot) .st{border:1px solid var(--line2);color:var(--dim)}
+  .mo p{margin:0;font-size:.82rem;color:var(--muted)}
+
+  /* ---------- insights ---------- */
   .insights{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
   .insight{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative;overflow:hidden}
   .insight::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:.85}
@@ -87,7 +105,7 @@
   /* ---------- builder ---------- */
   .builder{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.25fr 1fr;box-shadow:0 24px 70px rgba(0,0,0,.35)}
   @media(max-width:860px){.builder{grid-template-columns:1fr}}
-  .b-left{padding:38px 38px 42px;display:flex;flex-direction:column;gap:30px}
+  .b-left{padding:36px 36px 40px;display:flex;flex-direction:column;gap:28px}
   .b-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;display:flex;justify-content:space-between}
   .b-label output{color:var(--ember);letter-spacing:0;font-variant-numeric:tabular-nums;text-transform:none;font-size:.8rem}
   .chips{display:flex;gap:8px;flex-wrap:wrap}
@@ -110,17 +128,17 @@
   .add.on{color:var(--text);border-color:rgba(255,120,71,.5);background:rgba(255,120,71,.06)}
   .add i{font-style:normal;margin-left:auto;color:var(--gold);font-variant-numeric:tabular-nums;font-size:.76rem;white-space:nowrap}
 
-  .b-right{background:linear-gradient(170deg,#221712,#180F0C);border-left:1px solid var(--line);padding:38px;display:flex;flex-direction:column}
+  .b-right{background:linear-gradient(170deg,#221712,#180F0C);border-left:1px solid var(--line);padding:36px;display:flex;flex-direction:column}
   @media(max-width:860px){.b-right{border-left:none;border-top:1px solid var(--line)}}
   .b-right small.top{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
   .quote-total{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(2.4rem,4.6vw,3.4rem);line-height:1.05;margin:12px 0 2px;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .quote-sub{font-size:.8rem;color:var(--muted);margin-bottom:22px}
+  .quote-sub{font-size:.8rem;color:var(--muted);margin-bottom:20px}
   .qline{display:flex;justify-content:space-between;font-size:.84rem;padding:9px 0;border-bottom:1px dashed rgba(239,237,232,.12);color:var(--muted);font-variant-numeric:tabular-nums}
   .qline b{color:var(--text);font-weight:600}
   .qline.total{border-bottom:none;padding-top:14px;font-size:.95rem}
-  .min-flag{margin-top:18px;font-size:.78rem;padding:10px 14px;border-radius:10px;border:1px solid rgba(111,207,151,.35);color:var(--good);background:rgba(111,207,151,.07)}
+  .min-flag{margin-top:16px;font-size:.78rem;padding:10px 14px;border-radius:10px;border:1px solid rgba(111,207,151,.35);color:var(--good);background:rgba(111,207,151,.07)}
   .min-flag.warn{border-color:rgba(255,198,92,.4);color:var(--ember2);background:rgba(255,198,92,.06)}
-  .b-right .promise{margin-top:auto;padding-top:24px;font-size:.75rem;color:var(--dim)}
+  .b-right .promise{margin-top:auto;padding-top:22px;font-size:.75rem;color:var(--dim)}
   .b-right .promise b{color:var(--text)}
 
   /* ---------- packages ---------- */
@@ -160,12 +178,75 @@
   .beat h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.15rem;margin:10px 0 8px}
   .beat p{font-size:.85rem;color:var(--muted);margin:0}
 
-  /* ---------- funnel ---------- */
-  .funnel{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:f}
-  .fstep{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;counter-increment:f;position:relative}
-  .fstep::before{content:"0" counter(f);font-size:.66rem;letter-spacing:.16em;color:var(--dim);font-weight:700}
-  .fstep b{display:block;font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.9rem;margin:8px 0 2px;font-variant-numeric:tabular-nums;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .fstep span{font-size:.8rem;color:var(--muted)}
+  /* ---------- AD STRATEGY ---------- */
+  .adwrap{border-top:1px solid var(--line);background:linear-gradient(180deg,#12141A,var(--bg))}
+
+  /* chart */
+  .chartcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 30px 24px;margin-bottom:20px}
+  .legend{display:flex;gap:20px;flex-wrap:wrap;font-size:.76rem;color:var(--muted);margin-bottom:22px}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+  .chart{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;height:230px;align-items:end;position:relative;padding-top:10px}
+  .mcol{display:flex;flex-direction:column;height:100%;justify-content:flex-end}
+  .bars{display:flex;gap:7px;align-items:flex-end;height:100%}
+  .bar{flex:1;border-radius:6px 6px 0 0;min-height:4px;position:relative;transition:opacity .15s}
+  .bar.cost{background:linear-gradient(180deg,#FF6A3D,#7A2F16)}
+  .bar.intent{background:linear-gradient(180deg,#FFC65C,#7A5A1C)}
+  .bar span{position:absolute;top:-19px;left:0;right:0;text-align:center;font-size:.64rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .mlabel{text-align:center;font-size:.76rem;color:var(--muted);padding-top:10px;border-top:1px solid var(--line);margin-top:10px;font-weight:600}
+  .mcol.win .mlabel{color:var(--ember2)}
+  .winband{margin-top:14px;font-size:.8rem;color:var(--ember2);border:1px solid rgba(255,198,92,.32);background:rgba(255,198,92,.06);border-radius:10px;padding:10px 14px}
+
+  /* phases */
+  .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  @media(max-width:900px){.phases{grid-template-columns:1fr}}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .phase::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .phase.p1::before{background:linear-gradient(90deg,#FFC65C,#E3B573)}
+  .phase.p2::before{background:var(--grad)}
+  .phase.p3::before{background:linear-gradient(90deg,#7FB2E5,#4A7CA8)}
+  .phase .when{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .phase h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.25rem;margin:10px 0 4px}
+  .phase .goal{font-size:.84rem;color:var(--muted);margin:0 0 16px}
+  .phase .split{font-family:var(--display);font-weight:700;font-size:2rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums;line-height:1}
+  .phase .splitl{font-size:.7rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+  .phase dl{margin:0;font-size:.82rem}
+  .phase dt{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-top:12px}
+  .phase dd{margin:3px 0 0;color:var(--muted)}
+
+  /* budget planner */
+  .planner{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-top:20px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+  @media(max-width:860px){.planner{grid-template-columns:1fr}}
+  .pl-left{padding:34px}
+  .pl-right{background:linear-gradient(170deg,#221712,#180F0C);border-left:1px solid var(--line);padding:34px}
+  @media(max-width:860px){.pl-right{border-left:none;border-top:1px solid var(--line)}}
+  .splitbar{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:22px 0 10px;border:1px solid var(--line2)}
+  .splitbar i{display:block}
+  .splitbar i.a{background:linear-gradient(90deg,#FFC65C,#E3B573)}
+  .splitbar i.b{background:var(--grad)}
+  .splitbar i.c{background:linear-gradient(90deg,#7FB2E5,#4A7CA8)}
+  .splitkey{display:flex;gap:16px;flex-wrap:wrap;font-size:.72rem;color:var(--muted)}
+  .splitkey i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .funnel-out{display:grid;gap:0}
+  .fo{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px dashed rgba(239,237,232,.12);font-size:.84rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .fo b{font-family:var(--display);font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--text)}
+  .fo.hi b{font-size:1.7rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .fo:last-child{border-bottom:none}
+  .roas{margin-top:16px;font-size:.78rem;padding:11px 14px;border-radius:10px;border:1px solid rgba(111,207,151,.35);color:var(--good);background:rgba(111,207,151,.07)}
+
+  /* creative angles */
+  .angles{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+  .angle{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .angle .who{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .angle h3{font-family:var(--display);font-weight:700;font-size:1.08rem;letter-spacing:-.02em;margin:9px 0 10px}
+  .angle .hook{font-family:var(--serif);font-style:italic;font-size:.95rem;color:var(--text);border-left:2px solid var(--ember);padding-left:12px;margin:0 0 12px}
+  .angle p{font-size:.8rem;color:var(--muted);margin:0}
+
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:20px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .metric b{display:block;font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+  .metric span{font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
+  .metric small{font-size:.68rem;color:var(--dim);display:block;margin-top:8px}
 
   /* ---------- chapters ---------- */
   .chapters{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -175,10 +256,10 @@
   .chapter span{color:var(--dim);font-size:.78rem;margin-left:auto;text-align:right}
 
   /* ---------- closing ---------- */
-  .closing{position:relative;text-align:center;padding:100px 0 110px;overflow:hidden;border-top:1px solid var(--line)}
+  .closing{position:relative;text-align:center;padding:96px 0 106px;overflow:hidden;border-top:1px solid var(--line)}
   .closing .hero-glow{background:radial-gradient(50% 60% at 50% 100%,rgba(255,120,71,.13),transparent 70%)}
   .closing h2{margin-left:auto;margin-right:auto}
-  .closing .sub{margin:0 auto 36px}
+  .closing .sub{margin:0 auto 34px}
   footer{border-top:1px solid var(--line);padding:28px 0;font-size:.74rem;color:var(--dim)}
   footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 </style>
@@ -186,12 +267,12 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="#top">The Private Events <b>Playbook</b></a>
+    <a class="wordmark" href="#top">The Year-End <b>Playbook</b></a>
     <nav class="nav-links">
-      <a href="#research">The Research</a>
+      <a href="#calendar">The Calendar</a>
       <a href="#builder">Instant Quote</a>
       <a href="#packages">Packages</a>
-      <a href="#rights">The Standard</a>
+      <a href="#ads">Ad Strategy</a>
       <a class="nav-cta" href="example.html">Live example →</a>
     </nav>
   </div>
@@ -204,17 +285,23 @@
     <div class="hero-glow"></div>
     <canvas id="embers" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
-      <p class="kicker">A revenue system for restaurants</p>
-      <h1>Sell the <em>room</em>,<br>not just the seats.</h1>
-      <p class="lede">Private events are the highest-margin covers you'll ever serve. This playbook shows you how to package them, price them all-in, and answer inquiries faster than anyone else in your zip code.</p>
+      <p class="kicker">The year-end private events playbook</p>
+      <h1>December is decided <em>in August.</em></h1>
+      <p class="lede">Holiday parties are the highest-margin covers a restaurant will serve all year — and nearly all of them are booked before the first cold night. This is the playbook for packaging them, pricing them all-in, and advertising them while attention is still cheap.</p>
       <div class="cta-row">
         <a class="btn btn-solid" href="#builder">Build an instant quote</a>
-        <a class="btn btn-ghost" href="#packages">See the packages</a>
+        <a class="btn btn-ghost" href="#ads">See the ad strategy</a>
       </div>
+
+      <div class="countdown">
+        <div class="num" id="cdNum">—</div>
+        <div class="txt" id="cdTxt">weeks until peak December.</div>
+      </div>
+
       <div class="hero-proof">
         <span><b>1.8×</b> spend per guest vs. à la carte</span>
-        <span><b>100%</b> revenue contracted up front</span>
-        <span><b>Mon–Wed</b> rooms turned profitable</span>
+        <span><b>Aug–Oct</b> when the decision is made</span>
+        <span><b>100%</b> contracted before they arrive</span>
       </div>
 
       <div class="scene hero-scene">
@@ -224,21 +311,57 @@
     </div>
   </div>
 
+  <!-- SEASON CALENDAR -->
+  <section id="calendar">
+    <div class="wrap">
+      <span class="tag">The season calendar</span>
+      <h2>The whole year turns on <em>ten weeks.</em></h2>
+      <p class="sub">Corporate holiday decisions are made between August and early October — long before the parties happen. Miss that window and you're competing for the leftovers in November, at triple the ad cost.</p>
+      <div class="cal">
+        <div class="mo hot">
+          <div class="m">August</div>
+          <span class="st">Decide now</span>
+          <p>Planners open the search. Large companies (200+) need four to six months, so they're already calling. Your page and packages must be live <em>this month.</em></p>
+        </div>
+        <div class="mo hot">
+          <div class="m">September</div>
+          <span class="st">Prime dates go</span>
+          <p>The dates everyone wants — the second and third weeks of December, Thursdays and Fridays — fill now. Mid-size companies book 10–12 weeks out.</p>
+        </div>
+        <div class="mo hot">
+          <div class="m">October</div>
+          <span class="st">Last real call</span>
+          <p>Final wave of mid-size bookings, plus every small team working on a 6–8 week runway. Ad costs are still reasonable. This is the last cheap month.</p>
+        </div>
+        <div class="mo">
+          <div class="m">November</div>
+          <span class="st">Expensive</span>
+          <p>Ad costs spike with retail. What's left to sell is overflow: weeknight dates, lunches, smaller rooms. Harvest your warm audience instead of prospecting.</p>
+        </div>
+        <div class="mo">
+          <div class="m">December</div>
+          <span class="st">Execute</span>
+          <p>The room runs. Your only job now is the send-off — and the rebooking card that puts next year's date on the calendar before they leave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RESEARCH -->
   <section id="research">
     <div class="wrap">
       <span class="tag">What bookers told us</span>
-      <h2>We studied why people <em>don't</em> book. Fix these four things and you win.</h2>
-      <p class="sub">Event planners and party hosts shop three to five venues at once. The patterns in what makes them choose — and ghost — are remarkably consistent.</p>
+      <h2>Why planners pick <em>someone else.</em></h2>
+      <p class="sub">A holiday party planner is shopping three to five venues at once, usually on a deadline handed to them by someone senior. The patterns in what makes them choose — and ghost — are remarkably consistent.</p>
       <div class="insights">
         <div class="insight">
           <b>The fastest clear answer wins</b>
-          <p>Bookers send multiple inquiries at once. The venue that replies first with complete information — not "let's hop on a call" — takes the deposit. Most venues take days. Beat them with hours.</p>
+          <p>Inquiries go out in batches. The venue that replies first with complete information — not "let's hop on a call" — takes the deposit. In season, most venues take days. Beat them with hours.</p>
           <small>Fix → the 2-hour proposal</small>
         </div>
         <div class="insight">
-          <b>Hidden fees kill trust</b>
-          <p>A $95/guest quote that becomes $128 after service charge, tax, and fees is the #1 reason contracts stall. Regulators are now mandating all-in pricing — get ahead of it and say the real number first.</p>
+          <b>Hidden fees kill the contract</b>
+          <p>A $95/guest quote that becomes $128 after service charge, tax, and fees is the top reason deals stall — and an office manager spending company money cannot go back for more twice.</p>
           <small>Fix → all-in instant quote</small>
         </div>
         <div class="insight">
@@ -248,7 +371,7 @@
         </div>
         <div class="insight">
           <b>"Inquire for pricing" is a dead end</b>
-          <p>Stale photos, vague capacity, and pricing behind a form make bookers bounce. Publish real menus, real minimums, and live-feeling availability — self-service until they're ready to talk.</p>
+          <p>Vague capacity and pricing behind a form makes planners bounce to the venue that published the number. They need a figure to take to their boss today, not after a site visit.</p>
           <small>Fix → everything on the page</small>
         </div>
       </div>
@@ -260,23 +383,23 @@
     <div class="wrap">
       <span class="tag">The innovation</span>
       <h2>A real quote in <em>30 seconds</em>, not three days.</h2>
-      <p class="sub">This is what's missing in the space: the all-in number — service charge, tax, deposit, everything — before anyone has to send an email. Put this on your site and you're the first clear answer.</p>
+      <p class="sub">This is what's missing across the category: the all-in number — service charge, tax, deposit, peak-date premium — before anyone sends an email. Put this on your site and you become the first clear answer of the season.</p>
 
       <div class="builder">
         <div class="b-left">
           <div>
             <div class="b-label">Occasion</div>
             <div class="chips" id="occChips" role="group" aria-label="Choose an occasion">
-              <button class="chip" aria-pressed="true">Birthday</button>
-              <button class="chip" aria-pressed="false">Corporate dinner</button>
-              <button class="chip" aria-pressed="false">Rehearsal dinner</button>
-              <button class="chip" aria-pressed="false">Holiday party</button>
+              <button class="chip" aria-pressed="true">Company holiday party</button>
+              <button class="chip" aria-pressed="false">Team dinner</button>
+              <button class="chip" aria-pressed="false">Client entertaining</button>
+              <button class="chip" aria-pressed="false">New Year's Eve</button>
               <button class="chip" aria-pressed="false">Full buyout</button>
             </div>
           </div>
           <div>
-            <div class="b-label"><label for="bg">Guests</label> <output id="bgOut">32</output></div>
-            <input type="range" id="bg" min="10" max="120" step="2" value="32">
+            <div class="b-label"><label for="bg">Guests</label> <output id="bgOut">48</output></div>
+            <input type="range" id="bg" min="10" max="130" step="2" value="48">
           </div>
           <div>
             <div class="b-label">Package</div>
@@ -295,17 +418,26 @@
               <label class="add"><input type="checkbox" value="14">Late-night bites<i>+$14 / guest</i></label>
             </div>
           </div>
+          <div>
+            <div class="b-label">Date</div>
+            <div class="chips" id="dateChips" role="group" aria-label="Choose a date type">
+              <button class="chip" data-prem="1.15" aria-pressed="true">Peak December (Thu–Sat)</button>
+              <button class="chip" data-prem="1" aria-pressed="false">December weeknight</button>
+              <button class="chip" data-prem="0.9" aria-pressed="false">Off-peak / January</button>
+            </div>
+          </div>
         </div>
 
         <div class="b-right" aria-live="polite">
           <small class="top">Your all-in estimate</small>
-          <div class="quote-total" id="qTotal">$4,910</div>
-          <p class="quote-sub" id="qPer">$153 per guest, everything included</p>
-          <div class="qline"><span id="qBaseLabel">The Celebration × 32 guests</span><b id="qBase">$3,520</b></div>
-          <div class="qline"><span id="qAddLabel">Add-ons</span><b id="qAdd">$0</b></div>
-          <div class="qline"><span>Service charge · 20%</span><b id="qSvc">$704</b></div>
-          <div class="qline"><span>Estimated tax · 6%</span><b id="qTax">$253</b></div>
-          <div class="qline total"><span>Deposit to hold the date · 25%</span><b id="qDep">$1,228</b></div>
+          <div class="quote-total" id="qTotal">$8,470</div>
+          <p class="quote-sub" id="qPer">$176 per guest, everything included</p>
+          <div class="qline"><span id="qBaseLabel">The Celebration × 48 guests</span><b id="qBase">$5,280</b></div>
+          <div class="qline"><span id="qPremLabel">Peak December date · +15%</span><b id="qPrem">$792</b></div>
+          <div class="qline"><span>Add-ons</span><b id="qAdd">$0</b></div>
+          <div class="qline"><span>Service charge · 20%</span><b id="qSvc">$1,214</b></div>
+          <div class="qline"><span>Estimated tax · 6%</span><b id="qTax">$437</b></div>
+          <div class="qline total"><span>Deposit to hold the date · 25%</span><b id="qDep">$2,118</b></div>
           <div class="min-flag" id="qMin">Clears the $3,500 room minimum</div>
           <p class="promise">No hidden fees. This number is the number. <b>A human confirms within 2 hours.</b></p>
         </div>
@@ -318,22 +450,21 @@
     <div class="wrap">
       <span class="tag">The packages</span>
       <h2>Three tiers. Priced, plated, <em>ready to sell.</em></h2>
-      <p class="sub">Guests should choose a package the way they choose an entrée — from a short, confident menu. A complete example set to adapt to your room.</p>
+      <p class="sub">A planner should choose a package the way a guest chooses an entrée — from a short, confident menu. A complete year-end set to adapt to your room.</p>
 
       <div class="pkg-grid">
-        <!-- TIER 1 -->
         <div class="pkg">
           <div class="scene pkg-scene">
             <img loading="lazy" src="assets/img/gathering.jpg" alt="Family-style feast shared around one long table">
           </div>
           <div class="pkg-body">
             <h3>The Gathering</h3>
-            <p class="occ">Birthdays · Team dinners</p>
+            <p class="occ">Team dinners · Department parties</p>
             <div class="price"><b>$75</b><span>per guest, before service &amp; tax</span></div>
             <h4>Sample menu</h4>
-            <p class="menu-line">Warm sourdough &amp; whipped butter</p>
-            <p class="menu-line">Family-style roast chicken, charred broccolini, crispy potatoes</p>
-            <p class="menu-line">Seasonal fruit crostata to share</p>
+            <p class="menu-line">Warm sourdough &amp; whipped honey butter</p>
+            <p class="menu-line">Family-style roast chicken, charred broccolini, brown-butter potatoes</p>
+            <p class="menu-line">Spiced apple crostata to share</p>
             <h4>Included</h4>
             <ul>
               <li>Semi-private section · up to 24 guests</li>
@@ -342,24 +473,23 @@
               <li>Dedicated server team</li>
               <li>2.5-hour window</li>
             </ul>
-            <p class="mins">Minimum $1,200 · Sun–Thu</p>
+            <p class="mins">Minimum $1,200 · Sun–Wed in December</p>
           </div>
         </div>
 
-        <!-- TIER 2 -->
         <div class="pkg featured">
           <div class="scene pkg-scene">
             <img loading="lazy" src="assets/img/celebration.jpg" alt="Long table dressed with florals for a celebration">
           </div>
           <div class="pkg-body">
-            <span class="badge">Most booked</span>
+            <span class="badge">Books first</span>
             <h3>The Celebration</h3>
-            <p class="occ">Rehearsal dinners · Holiday parties</p>
+            <p class="occ">Company holiday parties</p>
             <div class="price"><b>$110</b><span>per guest, before service &amp; tax</span></div>
             <h4>Sample menu</h4>
             <p class="menu-line">Welcome cocktail &amp; passed canapés</p>
-            <p class="menu-line">Plated: burrata &amp; stone fruit · choice of ribeye or branzino</p>
-            <p class="menu-line">Chocolate torte, coffee service</p>
+            <p class="menu-line">Plated: burrata &amp; roasted pear · choice of ribeye or branzino</p>
+            <p class="menu-line">Chocolate torte, coffee &amp; petit fours</p>
             <h4>Included</h4>
             <ul>
               <li>Full private room · up to 48 guests</li>
@@ -370,18 +500,17 @@
               <li>Sound system &amp; toast mic</li>
               <li>3.5-hour window</li>
             </ul>
-            <p class="mins">Minimum $3,500 · any night</p>
+            <p class="mins">Minimum $3,500 · +15% on peak December dates</p>
           </div>
         </div>
 
-        <!-- TIER 3 -->
         <div class="pkg">
           <div class="scene pkg-scene">
             <img loading="lazy" src="assets/img/signature.jpg" alt="Friends raising glasses of red wine in a toast">
           </div>
           <div class="pkg-body">
             <h3>The Signature</h3>
-            <p class="occ">Weddings · Buyouts · Corporate</p>
+            <p class="occ">Buyouts · Executive &amp; client events</p>
             <div class="price"><b>From $150</b><span>per guest, before service &amp; tax</span></div>
             <h4>Sample menu</h4>
             <p class="menu-line">Champagne &amp; oyster reception</p>
@@ -389,7 +518,7 @@
             <p class="menu-line">Sommelier-selected wine pairings</p>
             <h4>Included</h4>
             <ul>
-              <li>Full buyout · up to 120 guests</li>
+              <li>Full buyout · up to 130 guests</li>
               <li>Menu designed with the executive chef</li>
               <li>Wine pairings or premium open bar</li>
               <li>Captain + coordinator planning calls</li>
@@ -404,18 +533,18 @@
     </div>
   </section>
 
-  <!-- RIGHTS / THE STANDARD -->
+  <!-- RIGHTS -->
   <section id="rights">
     <div class="wrap">
       <span class="tag">The standard</span>
       <h2>The Booker's Bill of Rights — <em>publish it</em> and mean it.</h2>
-      <p class="sub">Every one of these answers a real frustration bookers named. Print them on your events page. Almost none of your competitors will match them.</p>
+      <p class="sub">Every one of these answers a frustration planners named out loud. Print them on your events page. Almost none of your competitors will match them in season.</p>
       <div class="rights">
         <div class="right"><div><b>A complete proposal within 2 hours, in business hours</b><p>Not an acknowledgment. Not "let's find time to chat." The menu, the room, the all-in price, the date held for 72 hours.</p></div></div>
-        <div class="right"><div><b>The all-in price, first</b><p>Service charge, tax, and fees in every number we show you. The quote you see is the contract you sign.</p></div></div>
-        <div class="right"><div><b>One captain, start to finish</b><p>You'll have a name and a direct line. You will never re-explain your event to a second person.</p></div></div>
+        <div class="right"><div><b>The all-in price, first</b><p>Service charge, tax, and any peak-date premium in every number we show you. The quote you see is the contract you sign.</p></div></div>
+        <div class="right"><div><b>One captain, start to finish</b><p>You'll have a name and a direct line. You will never re-explain your party to a second person.</p></div></div>
         <div class="right"><div><b>Dietary needs handled by default</b><p>Vegan, gluten-free, allergies, kosher-style — flagged once on the form, confirmed on the menu card, no side conversations.</p></div></div>
-        <div class="right"><div><b>Plain-language deposit &amp; weather-proof cancellation</b><p>25% holds the date. Full transfer to a new date with 14 days' notice. No fine print you need a lawyer for.</p></div></div>
+        <div class="right"><div><b>Plain-language deposit &amp; a real weather clause</b><p>25% holds the date. Full transfer to a new date with 14 days' notice, or if the city shuts down for snow. No fine print you need a lawyer for.</p></div></div>
       </div>
     </div>
   </section>
@@ -424,31 +553,170 @@
   <section id="experience">
     <div class="wrap">
       <span class="tag">The experience</span>
-      <h2>Script four moments. The reviews <em>write themselves.</em></h2>
-      <p class="sub">A great private event isn't a long dinner — it's a short story. Engineer these beats into every package and hosts rebook before dessert.</p>
+      <h2>Script four moments. The rebooking <em>writes itself.</em></h2>
+      <p class="sub">A great holiday party isn't a long dinner — it's a short story. Engineer these beats and the planner books next December before they've paid this one.</p>
       <div class="beats">
-        <div class="beat"><small>01 · Arrival</small><h3>The Welcome</h3><p>Coats taken, host greeted by name, a glass in hand within ninety seconds of the door.</p></div>
-        <div class="beat"><small>02 · Dinner</small><h3>The Reveal</h3><p>One theatrical course — the tableside pour, the carving, the flame — that everyone photographs.</p></div>
-        <div class="beat"><small>03 · Peak</small><h3>The Toast</h3><p>Lights nudge down, mic appears, the captain cues the host. The moment the night is remembered by.</p></div>
-        <div class="beat"><small>04 · Exit</small><h3>The Send-off</h3><p>A wrapped treat and a handwritten card at the door — with next year's booking link on the back.</p></div>
+        <div class="beat"><small>01 · Arrival</small><h3>The Welcome</h3><p>Coats taken, planner greeted by name, a glass in every hand within ninety seconds of the door.</p></div>
+        <div class="beat"><small>02 · Dinner</small><h3>The Reveal</h3><p>One theatrical course — the tableside pour, the carving, the flame — that the whole table photographs.</p></div>
+        <div class="beat"><small>03 · Peak</small><h3>The Toast</h3><p>Lights nudge down, mic appears, the captain cues the host. The moment the year is remembered by.</p></div>
+        <div class="beat"><small>04 · Exit</small><h3>The Send-off</h3><p>A wrapped treat and a handwritten card at the door — with next December's hold link on the back.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- FUNNEL -->
-  <section id="funnel">
-    <div class="wrap">
-      <span class="tag">The funnel</span>
-      <h2>From scroll to <em>signed contract.</em></h2>
-      <p class="sub">Occasion-targeted ads point to a page like this one — packages, instant quote, bill of rights. Illustrative month on a modest budget:</p>
-      <div class="funnel">
-        <div class="fstep"><b>40,000</b><span>Impressions, targeted at engagements, promotions &amp; December parties</span></div>
-        <div class="fstep"><b>800</b><span>Page visits at a 2% click-through</span></div>
-        <div class="fstep"><b>64</b><span>Inquiries at an 8% form conversion — instant quotes convert best</span></div>
-        <div class="fstep"><b>19</b><span>Booked events at a 30% close rate</span></div>
+  <!-- ================= AD STRATEGY ================= -->
+  <div class="adwrap">
+    <section id="ads">
+      <div class="wrap">
+        <span class="tag">The ad strategy</span>
+        <h2>Buy attention in the month they're <em>deciding</em> — not the month they're partying.</h2>
+        <p class="sub">Q4 advertising costs climb 20–50% as retail floods the auction, peaking around Black Friday. But holiday party intent peaks in September. That gap is the entire opportunity: the cheapest attention of the season sits in the exact window your buyers are making the decision.</p>
+
+        <div class="chartcard">
+          <div class="legend">
+            <span><i style="background:linear-gradient(180deg,#FF6A3D,#7A2F16)"></i>Ad cost index (CPM)</span>
+            <span><i style="background:linear-gradient(180deg,#FFC65C,#7A5A1C)"></i>Holiday party booking intent</span>
+          </div>
+          <div class="chart">
+            <div class="mcol win"><div class="bars">
+              <div class="bar cost" style="height:57%" role="img" aria-label="August ad cost index 100"><span>100</span></div>
+              <div class="bar intent" style="height:40%" role="img" aria-label="August booking intent 70"><span>70</span></div>
+            </div><div class="mlabel">Aug</div></div>
+            <div class="mcol win"><div class="bars">
+              <div class="bar cost" style="height:63%" role="img" aria-label="September ad cost index 110"><span>110</span></div>
+              <div class="bar intent" style="height:57%" role="img" aria-label="September booking intent 100"><span>100</span></div>
+            </div><div class="mlabel">Sep</div></div>
+            <div class="mcol win"><div class="bars">
+              <div class="bar cost" style="height:71%" role="img" aria-label="October ad cost index 125"><span>125</span></div>
+              <div class="bar intent" style="height:54%" role="img" aria-label="October booking intent 95"><span>95</span></div>
+            </div><div class="mlabel">Oct</div></div>
+            <div class="mcol"><div class="bars">
+              <div class="bar cost" style="height:100%" role="img" aria-label="November ad cost index 175"><span>175</span></div>
+              <div class="bar intent" style="height:34%" role="img" aria-label="November booking intent 60"><span>60</span></div>
+            </div><div class="mlabel">Nov</div></div>
+            <div class="mcol"><div class="bars">
+              <div class="bar cost" style="height:86%" role="img" aria-label="December ad cost index 150"><span>150</span></div>
+              <div class="bar intent" style="height:17%" role="img" aria-label="December booking intent 30"><span>30</span></div>
+            </div><div class="mlabel">Dec</div></div>
+          </div>
+          <div class="winband"><b>The buy window is August through October.</b> Intent is at its highest while cost is at its lowest. By the time your competitors start advertising in November, they're paying a 75% premium to reach people who already booked somewhere else.</div>
+        </div>
+
+        <h2 style="margin-top:64px">Three phases, <em>one budget.</em></h2>
+        <p class="sub">Front-load it. Roughly two-thirds of the season's spend should land before November, building an audience you can convert cheaply once costs spike.</p>
+
+        <div class="phases">
+          <div class="phase p1">
+            <div class="when">Aug – mid Sep</div>
+            <h3>Warm the room</h3>
+            <p class="goal">Fill your retargeting pool while impressions are at their cheapest all quarter.</p>
+            <div class="split">40%</div>
+            <div class="splitl">of season budget</div>
+            <dl>
+              <dt>Objective</dt><dd>Video views &amp; traffic — not conversions yet</dd>
+              <dt>Audience</dt><dd>Office managers, executive assistants, HR &amp; marketing titles within 15 miles; past guests; email list</dd>
+              <dt>Creative</dt><dd>30-second room walkthrough, the toast moment, the carving. Anyone who watches 75% becomes a warm audience.</dd>
+              <dt>The point</dt><dd>Warm audiences cost far less to convert in November than cold prospecting does.</dd>
+            </dl>
+          </div>
+          <div class="phase p2">
+            <div class="when">Mid Sep – Oct</div>
+            <h3>Convert the deciders</h3>
+            <p class="goal">The heaviest booking weeks of the year. Push the instant quote hard.</p>
+            <div class="split">40%</div>
+            <div class="splitl">of season budget</div>
+            <dl>
+              <dt>Objective</dt><dd>Conversions — inquiry form &amp; instant quote completion</dd>
+              <dt>Audience</dt><dd>Retarget every video viewer and page visitor from Phase 1, plus search: "holiday party venue [city]", "private dining [neighborhood]"</dd>
+              <dt>Creative</dt><dd>Price-forward and date-scarce. "$110 all-in. December 12 still open." Package cards, capacity, the 2-hour promise.</dd>
+              <dt>The point</dt><dd>Scarcity is real right now — say which dates are actually left and it converts.</dd>
+            </dl>
+          </div>
+          <div class="phase p3">
+            <div class="when">Nov – early Dec</div>
+            <h3>Fill the gaps</h3>
+            <p class="goal">Stop prospecting. Harvest the audience you already paid for and sell what's left.</p>
+            <div class="split">20%</div>
+            <div class="splitl">of season budget</div>
+            <dl>
+              <dt>Objective</dt><dd>Conversions, retargeting only — cold prospecting is unaffordable now</dd>
+              <dt>Audience</dt><dd>Warm pool only: viewers, visitors, quote-starters who never submitted, past clients</dd>
+              <dt>Creative</dt><dd>Specific leftover inventory. "Tuesday, December 16. The Cellar. 14 seats. $2,400 all-in." Lunches, weeknights, smaller rooms.</dd>
+              <dt>The point</dt><dd>Weeknight and lunch dates are pure margin on nights you'd otherwise run half empty.</dd>
+            </dl>
+          </div>
+        </div>
+
+        <h2 style="margin-top:64px">What a season's budget <em>actually returns.</em></h2>
+        <p class="sub">Drag your total Q4 ad spend. Benchmarks are illustrative — a $2 click, a 3.5% inquiry rate on a page like this one, a 25% close, and a $4,200 average booked event.</p>
+
+        <div class="planner">
+          <div class="pl-left">
+            <div class="b-label"><label for="budget">Total season ad spend</label> <output id="budOut">$8,000</output></div>
+            <input type="range" id="budget" min="2000" max="30000" step="500" value="8000">
+
+            <div class="splitbar" aria-hidden="true"><i class="a" style="width:40%"></i><i class="b" style="width:40%"></i><i class="c" style="width:20%"></i></div>
+            <div class="splitkey">
+              <span><i style="background:linear-gradient(90deg,#FFC65C,#E3B573)"></i>Warm <b id="s1">$3,200</b></span>
+              <span><i style="background:var(--grad)"></i>Convert <b id="s2">$3,200</b></span>
+              <span><i style="background:linear-gradient(90deg,#7FB2E5,#4A7CA8)"></i>Fill <b id="s3">$1,600</b></span>
+            </div>
+
+            <p style="font-size:.8rem;color:var(--muted);margin-top:26px">Two-thirds of your money is spent before the auction gets expensive. By November you're paying retargeting rates against an audience you built at August prices — which is why the last 20% still books events.</p>
+          </div>
+          <div class="pl-right" aria-live="polite">
+            <small class="top" style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600">Projected season</small>
+            <div class="funnel-out" style="margin-top:18px">
+              <div class="fo"><span>Impressions</span><b id="oImp">444,000</b></div>
+              <div class="fo"><span>Page visits</span><b id="oClicks">4,000</b></div>
+              <div class="fo"><span>Inquiries</span><b id="oInq">140</b></div>
+              <div class="fo hi"><span>Events booked</span><b id="oBook">35</b></div>
+              <div class="fo hi"><span>Event revenue</span><b id="oRev">$147,000</b></div>
+            </div>
+            <div class="roas" id="oRoas">$18 back for every $1 spent</div>
+          </div>
+        </div>
+
+        <h2 style="margin-top:64px">Four angles, because creative <em>burns out fast.</em></h2>
+        <p class="sub">One ad will fatigue in three weeks at season spend. Build four distinct concepts up front, each with a few cuts, and rotate them as frequency climbs.</p>
+        <div class="angles">
+          <div class="angle">
+            <div class="who">The office manager</div>
+            <h3>Make them the hero</h3>
+            <p class="hook">"You planned it. We'll make you look like a genius."</p>
+            <p>The person booking is rarely the person paying — they're being judged on it. Sell the credit they get, not the canapés.</p>
+          </div>
+          <div class="angle">
+            <div class="who">The CFO's proxy</div>
+            <h3>Lead with the real number</h3>
+            <p class="hook">"$110 a head. All in. No surprise line items."</p>
+            <p>Budget-approval anxiety is the biggest silent objection in corporate booking. Killing it in the headline earns the click from every planner who's been burned.</p>
+          </div>
+          <div class="angle">
+            <div class="who">The procrastinator</div>
+            <h3>Name the date that's left</h3>
+            <p class="hook">"Three December Thursdays left. Then we're done."</p>
+            <p>Genuine scarcity, stated specifically. Update the number weekly — vague urgency reads as marketing, a real date reads as inventory.</p>
+          </div>
+          <div class="angle">
+            <div class="who">Last year's client</div>
+            <h3>Assume the rebooking</h3>
+            <p class="hook">"Same room, same night, one year later. Shall we hold it?"</p>
+            <p>Your cheapest bookings of the season. A single retargeting campaign against last year's guest list will usually outperform everything else you run.</p>
+          </div>
+        </div>
+
+        <h2 style="margin-top:64px">The five numbers <em>worth watching.</em></h2>
+        <div class="metrics">
+          <div class="metric"><b>&lt; 2 hrs</b><span>Response time</span><small>The single strongest predictor of close rate in season.</small></div>
+          <div class="metric"><b>$40–70</b><span>Cost per inquiry</span><small>Healthy for a four-figure average event value.</small></div>
+          <div class="metric"><b>25–35%</b><span>Inquiry → booked</span><small>Below 20% means the page is attracting the wrong size party.</small></div>
+          <div class="metric"><b>&lt; 2.5</b><span>Ad frequency</span><small>Past this, rotate creative — you're annoying a small audience.</small></div>
+          <div class="metric"><b>&gt; 30%</b><span>Rebooking rate</span><small>The compounding number. This is what makes next August easy.</small></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- CHAPTERS -->
   <section id="chapters">
@@ -456,14 +724,14 @@
       <span class="tag">The playbook</span>
       <h2>Eight chapters, start to booked.</h2>
       <div class="chapters" style="margin-top:34px">
-        <div class="chapter"><small>01</small> The Revenue Case <span>Why events beat covers</span></div>
+        <div class="chapter"><small>01</small> The Year-End Revenue Case <span>Why Q4 pays for Q1</span></div>
         <div class="chapter"><small>02</small> Designing the Package Menu <span>Three tiers, no custom quotes</span></div>
-        <div class="chapter"><small>03</small> Engineering the Experience <span>The four scripted beats</span></div>
-        <div class="chapter"><small>04</small> Pricing &amp; Minimums <span>All-in math by night of week</span></div>
-        <div class="chapter"><small>05</small> Advertising the Room <span>Occasion targeting that converts</span></div>
+        <div class="chapter"><small>03</small> Pricing, Minimums &amp; Peak Dates <span>All-in math by night of week</span></div>
+        <div class="chapter"><small>04</small> Engineering the Experience <span>The four scripted beats</span></div>
+        <div class="chapter"><small>05</small> The Season Calendar <span>What to do in each month</span></div>
         <div class="chapter"><small>06</small> The Landing Page <span>One page, one form, one job</span></div>
-        <div class="chapter"><small>07</small> Speed &amp; Follow-up <span>The 2-hour proposal system</span></div>
-        <div class="chapter"><small>08</small> Measuring the Program <span>The five numbers that matter</span></div>
+        <div class="chapter"><small>07</small> The Q4 Ad Strategy <span>Three phases, front-loaded</span></div>
+        <div class="chapter"><small>08</small> Rebooking Before They Leave <span>Making next year automatic</span></div>
       </div>
     </div>
   </section>
@@ -474,7 +742,7 @@
     <div class="wrap" style="position:relative">
       <span class="tag">See it in action</span>
       <h2>Ember &amp; Vine — the playbook, <em>working.</em></h2>
-      <p class="sub">Every principle applied to one fictional restaurant: the packages, the instant configurator, and the landing page that ties it together.</p>
+      <p class="sub">Every principle applied to one fictional restaurant: the packages, the instant configurator, and the landing page your ads should be pointing at.</p>
       <a class="btn btn-solid" href="example.html">Open the live example</a>
     </div>
   </div>
@@ -482,27 +750,53 @@
 
 <footer>
   <div class="wrap">
-    <span>The Private Events Playbook</span>
+    <span>The Year-End Private Events Playbook</span>
     <span>Benchmarks illustrative · research-synthesized · photography via Unsplash</span>
   </div>
 </footer>
 
 <script>
-  /* ---------- instant quote builder ---------- */
   const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const num=n=>Math.round(n).toLocaleString('en-US');
+
+  /* ---------- countdown to peak December ---------- */
+  (function(){
+    const now=new Date();
+    // second Saturday of December, this year (or next if already past)
+    function peak(y){
+      const d=new Date(y,11,1); let sat=0;
+      while(true){ if(d.getDay()===6){sat++; if(sat===2) return new Date(d);} d.setDate(d.getDate()+1); }
+    }
+    let t=peak(now.getFullYear());
+    if(t<now) t=peak(now.getFullYear()+1);
+    const weeks=Math.max(0,Math.round((t-now)/(1000*60*60*24*7)));
+    document.getElementById('cdNum').textContent=weeks;
+    const el=document.getElementById('cdTxt');
+    const month=now.getMonth();
+    let msg;
+    if(month<=8) msg='weeks until peak December — and the decisions are being made <b>right now.</b> Prime dates fill by the end of September.';
+    else if(month===9) msg='weeks until peak December. <b>Last cheap month</b> to advertise before costs spike.';
+    else if(month===10) msg='weeks until peak December. Stop prospecting — <b>harvest your warm audience</b> and sell weeknights.';
+    else msg='weeks until peak December next year. Time to <b>lock in rebookings</b> while the night is still fresh.';
+    el.innerHTML=msg;
+  })();
+
+  /* ---------- instant quote builder ---------- */
   const bg=document.getElementById('bg');
   const tiers=[...document.querySelectorAll('.tier-opt')];
   const occs=[...document.querySelectorAll('#occChips .chip')];
+  const dates=[...document.querySelectorAll('#dateChips .chip')];
   const adds=[...document.querySelectorAll('#adds input')];
   const MIN={75:1200,110:3500,150:8000};
   const NAMES={75:'The Gathering',110:'The Celebration',150:'The Signature'};
 
-  occs.forEach(c=>c.addEventListener('click',()=>{occs.forEach(o=>o.setAttribute('aria-pressed','false'));c.setAttribute('aria-pressed','true');
-    // nudge sensible defaults per occasion
-    const map={'Full buyout':[110,150],'Rehearsal dinner':[40,110],'Holiday party':[48,110],'Corporate dinner':[24,110],'Birthday':[24,75]};
+  occs.forEach(c=>c.addEventListener('click',()=>{
+    occs.forEach(o=>o.setAttribute('aria-pressed','false'));c.setAttribute('aria-pressed','true');
+    const map={'Full buyout':[110,150],'Company holiday party':[48,110],"New Year's Eve":[60,150],'Client entertaining':[18,150],'Team dinner':[24,75]};
     const v=map[c.textContent.trim()];if(v){bg.value=v[0];setTier(v[1]);}
     calc();
   }));
+  dates.forEach(c=>c.addEventListener('click',()=>{dates.forEach(o=>o.setAttribute('aria-pressed','false'));c.setAttribute('aria-pressed','true');calc();}));
   function setTier(p){tiers.forEach(t=>t.setAttribute('aria-pressed',t.dataset.price==p?'true':'false'));}
   tiers.forEach(t=>t.addEventListener('click',()=>{setTier(t.dataset.price);calc();}));
   adds.forEach(a=>a.addEventListener('change',()=>{a.closest('.add').classList.toggle('on',a.checked);calc();}));
@@ -511,24 +805,53 @@
   function calc(){
     const guests=+bg.value;
     const tier=+tiers.find(t=>t.getAttribute('aria-pressed')==='true').dataset.price;
+    const dchip=dates.find(d=>d.getAttribute('aria-pressed')==='true');
+    const prem=+dchip.dataset.prem;
     const addPer=adds.filter(a=>a.checked).reduce((s,a)=>s+ +a.value,0);
     const base=guests*tier, add=guests*addPer;
-    const svc=(base+add)*.20, tax=(base+add+svc)*.06;
-    const total=base+add+svc+tax;
+    const premAmt=(base+add)*(prem-1);
+    const sub=base+add+premAmt;
+    const svc=sub*.20, tax=(sub+svc)*.06;
+    const total=sub+svc+tax;
     document.getElementById('bgOut').textContent=guests;
     document.getElementById('qBaseLabel').textContent=NAMES[tier]+' × '+guests+' guests';
     document.getElementById('qBase').textContent=fmt(base);
     document.getElementById('qAdd').textContent=fmt(add);
+    const pl=document.getElementById('qPremLabel');
+    if(prem>1){pl.textContent='Peak December date · +'+Math.round((prem-1)*100)+'%';}
+    else if(prem<1){pl.textContent='Off-peak date · −'+Math.round((1-prem)*100)+'%';}
+    else{pl.textContent='December weeknight · no premium';}
+    document.getElementById('qPrem').textContent=(premAmt<0?'−':'')+fmt(Math.abs(premAmt));
     document.getElementById('qSvc').textContent=fmt(svc);
     document.getElementById('qTax').textContent=fmt(tax);
     document.getElementById('qTotal').textContent=fmt(total);
     document.getElementById('qDep').textContent=fmt(total*.25);
     document.getElementById('qPer').textContent=fmt(total/guests)+' per guest, everything included';
     const min=MIN[tier],flag=document.getElementById('qMin');
-    if(base+add>=min){flag.textContent='Clears the '+fmt(min)+' room minimum';flag.classList.remove('warn');}
-    else{flag.textContent=fmt(min)+' minimum — add '+fmt(min-(base+add))+' in food & beverage to hold the room';flag.classList.add('warn');}
+    if(sub>=min){flag.textContent='Clears the '+fmt(min)+' room minimum';flag.classList.remove('warn');}
+    else{flag.textContent=fmt(min)+' minimum — add '+fmt(min-sub)+' in food & beverage to hold the room';flag.classList.add('warn');}
   }
   calc();
+
+  /* ---------- season budget planner ---------- */
+  const budget=document.getElementById('budget');
+  function plan(){
+    const b=+budget.value;
+    document.getElementById('budOut').textContent=fmt(b);
+    document.getElementById('s1').textContent=fmt(b*.40);
+    document.getElementById('s2').textContent=fmt(b*.40);
+    document.getElementById('s3').textContent=fmt(b*.20);
+    const CPM=18, CTR=.009, INQ=.035, CLOSE=.25, VAL=4200;
+    const imp=b/CPM*1000, clicks=imp*CTR, inq=clicks*INQ, booked=inq*CLOSE, rev=booked*VAL;
+    document.getElementById('oImp').textContent=num(imp);
+    document.getElementById('oClicks').textContent=num(clicks);
+    document.getElementById('oInq').textContent=num(inq);
+    document.getElementById('oBook').textContent=num(booked);
+    document.getElementById('oRev').textContent=fmt(rev);
+    document.getElementById('oRoas').textContent=fmt(rev/b).replace('$','$')+' back for every $1 spent · '+fmt(b/Math.max(inq,1))+' per inquiry';
+  }
+  budget.addEventListener('input',plan);
+  plan();
 
   /* ---------- ember particles ---------- */
   const cv=document.getElementById('embers');
