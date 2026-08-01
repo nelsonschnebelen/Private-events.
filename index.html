@@ -60,20 +60,13 @@
   .hero-proof{display:flex;gap:26px;margin-top:38px;font-size:.78rem;color:var(--dim);flex-wrap:wrap}
   .hero-proof span b{color:var(--text);font-weight:600}
 
-  /* ---------- scenes (CSS-drawn visuals; swap with photos) ---------- */
+  /* ---------- photos ---------- */
   .scene{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#0B0D11}
-  .scene .swap{position:absolute;top:12px;right:12px;z-index:3;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,237,232,.4);border:1px solid rgba(239,237,232,.14);border-radius:999px;padding:4px 10px;backdrop-filter:blur(4px)}
-  .scene .cap{position:absolute;left:16px;bottom:12px;z-index:3;font-size:.72rem;color:rgba(239,237,232,.65);letter-spacing:.03em}
-  .sky{position:absolute;inset:0}
-  .glow{position:absolute;border-radius:50%;filter:blur(2px)}
-  .table{position:absolute;left:50%;transform:translateX(-50%);bottom:-6%;width:120%;height:34%;border-radius:50%;background:radial-gradient(50% 60% at 50% 30%,rgba(255,170,90,.30),rgba(90,50,25,.18) 55%,transparent 75%)}
-  .candle{position:absolute;bottom:26%;width:7px;height:7px;border-radius:50%;background:#FFD9A0;box-shadow:0 0 12px 5px rgba(255,180,90,.75),0 0 44px 20px rgba(255,140,60,.28);animation:flick 3.2s ease-in-out infinite}
-  .candle:nth-child(2n){animation-delay:1.1s}.candle:nth-child(3n){animation-delay:2s}
-  @keyframes flick{0%,100%{opacity:1}50%{opacity:.72}}
-  .pendant{position:absolute;top:0;width:1px;background:rgba(239,237,232,.14)}
-  .pendant::after{content:"";position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:#FFE0AE;box-shadow:0 0 16px 7px rgba(255,190,100,.5),0 0 60px 26px rgba(255,150,70,.16)}
+  .scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .scene::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,17,.1) 55%,rgba(11,13,17,.72));pointer-events:none}
+  .scene .cap{position:absolute;left:16px;bottom:12px;z-index:3;font-size:.72rem;color:rgba(239,237,232,.85);letter-spacing:.03em;text-shadow:0 1px 8px rgba(0,0,0,.6)}
   .hero-scene{aspect-ratio:21/8;margin-top:64px}
-  .arch{position:absolute;inset:auto 8% -30% 8%;height:120%;border:1px solid rgba(255,198,92,.09);border-radius:50% 50% 0 0}
+  @media(max-width:640px){.hero-scene{aspect-ratio:16/10}}
 
   /* ---------- sections ---------- */
   section{padding:84px 0}
@@ -224,22 +217,9 @@
         <span><b>Mon–Wed</b> rooms turned profitable</span>
       </div>
 
-      <div class="scene hero-scene" role="img" aria-label="Candlelit private dining room, long table set for a party">
-        <span class="swap">Swap for your photo · 21:9</span>
-        <div class="sky" style="background:linear-gradient(180deg,#0B0D11 0%,#151013 55%,#1D130D 100%)"></div>
-        <div class="arch"></div>
-        <div class="pendant" style="left:22%;height:24%"></div>
-        <div class="pendant" style="left:38%;height:32%"></div>
-        <div class="pendant" style="left:54%;height:26%"></div>
-        <div class="pendant" style="left:70%;height:34%"></div>
-        <div class="table"></div>
-        <div class="candle" style="left:18%"></div>
-        <div class="candle" style="left:31%;bottom:23%"></div>
-        <div class="candle" style="left:44%;bottom:27%"></div>
-        <div class="candle" style="left:57%;bottom:24%"></div>
-        <div class="candle" style="left:69%;bottom:26%"></div>
-        <div class="candle" style="left:81%;bottom:23%"></div>
-        <span class="cap">The room, an hour before they arrive.</span>
+      <div class="scene hero-scene">
+        <img src="assets/img/hero.jpg" alt="Steak over open flame on the grill, sparks rising">
+        <span class="cap">The fire, an hour before they arrive.</span>
       </div>
     </div>
   </div>
@@ -343,13 +323,8 @@
       <div class="pkg-grid">
         <!-- TIER 1 -->
         <div class="pkg">
-          <div class="scene pkg-scene" role="img" aria-label="Warm shared table with candles">
-            <span class="swap">Your photo · 16:9</span>
-            <div class="sky" style="background:linear-gradient(180deg,#0C0E12,#1B130C)"></div>
-            <div class="table"></div>
-            <div class="candle" style="left:30%;bottom:30%"></div>
-            <div class="candle" style="left:50%;bottom:26%"></div>
-            <div class="candle" style="left:68%;bottom:31%"></div>
+          <div class="scene pkg-scene">
+            <img loading="lazy" src="assets/img/gathering.jpg" alt="Warm bar with glowing pendant lights">
           </div>
           <div class="pkg-body">
             <h3>The Gathering</h3>
@@ -373,15 +348,8 @@
 
         <!-- TIER 2 -->
         <div class="pkg featured">
-          <div class="scene pkg-scene" role="img" aria-label="Private room with pendant lights set for a plated dinner">
-            <span class="swap">Your photo · 16:9</span>
-            <div class="sky" style="background:linear-gradient(180deg,#0C0E12,#170F10)"></div>
-            <div class="pendant" style="left:30%;height:30%"></div>
-            <div class="pendant" style="left:50%;height:38%"></div>
-            <div class="pendant" style="left:70%;height:30%"></div>
-            <div class="table"></div>
-            <div class="candle" style="left:38%;bottom:27%"></div>
-            <div class="candle" style="left:60%;bottom:27%"></div>
+          <div class="scene pkg-scene">
+            <img loading="lazy" src="assets/img/celebration.jpg" alt="Private dining room set for a plated dinner">
           </div>
           <div class="pkg-body">
             <span class="badge">Most booked</span>
@@ -408,18 +376,8 @@
 
         <!-- TIER 3 -->
         <div class="pkg">
-          <div class="scene pkg-scene" role="img" aria-label="Grand buyout room with an arc of lights">
-            <span class="swap">Your photo · 16:9</span>
-            <div class="sky" style="background:linear-gradient(180deg,#0C0E12,#191110)"></div>
-            <div class="arch" style="inset:auto 14% -40% 14%"></div>
-            <div class="pendant" style="left:24%;height:26%"></div>
-            <div class="pendant" style="left:40%;height:34%"></div>
-            <div class="pendant" style="left:58%;height:34%"></div>
-            <div class="pendant" style="left:75%;height:26%"></div>
-            <div class="table"></div>
-            <div class="candle" style="left:33%;bottom:28%"></div>
-            <div class="candle" style="left:49%;bottom:24%"></div>
-            <div class="candle" style="left:65%;bottom:28%"></div>
+          <div class="scene pkg-scene">
+            <img loading="lazy" src="assets/img/signature.jpg" alt="Grand dining room ready for a full buyout">
           </div>
           <div class="pkg-body">
             <h3>The Signature</h3>

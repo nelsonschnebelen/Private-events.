@@ -419,10 +419,10 @@
         <h2>A few frames from the <em>fire</em>.</h2>
       </div>
       <div class="gal reveal">
-        <figure class="wide tall"><img loading="lazy" alt="Wood-fired centerpiece" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=68&auto=format&fit=crop"></figure>
-        <figure><img loading="lazy" alt="Signature cocktail" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=68&auto=format&fit=crop"></figure>
-        <figure><img loading="lazy" alt="Cellar pour at golden hour" src="https://images.unsplash.com/photo-1470158499416-75be9aa0c4db?w=600&q=68&auto=format&fit=crop"></figure>
-        <figure class="wide"><img loading="lazy" alt="Celebration cake" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=900&q=68&auto=format&fit=crop"></figure>
+        <figure class="wide tall"><img loading="lazy" alt="Wood-fired centerpiece" src="assets/img/hero.jpg"></figure>
+        <figure><img loading="lazy" alt="Signature cocktail" src="assets/img/cellar.jpg"></figure>
+        <figure><img loading="lazy" alt="Cellar pour at golden hour" src="assets/img/vine.jpg"></figure>
+        <figure class="wide"><img loading="lazy" alt="Celebration cake" src="assets/img/buyout.jpg"></figure>
       </div>
       <div class="divider" style="margin:64px auto 40px"><span>✦</span></div>
       <div class="quote reveal">
@@ -446,7 +446,7 @@
             <li>A custom proposal for your headcount &amp; occasion</li>
             <li>No obligation — simply options</li>
           </ul>
-          <div class="imgpanel"><img loading="lazy" alt="Private dining at Ember & Vine" src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=900&q=68&auto=format&fit=crop"></div>
+          <div class="imgpanel"><img loading="lazy" alt="Private dining at Ember & Vine" src="assets/img/loft.jpg"></div>
         </div>
 
         <div class="reveal">
@@ -509,7 +509,7 @@
       128 Kiln Street · The Warehouse District · <a href="tel:+15555551234">(555) 555-1234</a> · <a href="mailto:events@emberandvine.example">events@emberandvine.example</a>
     </div>
     <div class="fine">
-      Fictional venue · Example landing page for <a href="index.html">The Private Events Playbook</a>. Photography is placeholder stock — replace copy, spaces, pricing, imagery &amp; contact per client.
+      Fictional venue · Example landing page for <a href="index.html">The Private Events Playbook</a>. Replace copy, spaces, pricing, imagery &amp; contact per client.
     </div>
   </footer>
 
@@ -521,17 +521,17 @@
      cinematic grade (CSS filters) so they read as one art-directed set.
      Swap the <id>s for the venue's real (or AI-generated) photography.
   ----------------------------------------------------------------*/
-  const IMG = id => `https://images.unsplash.com/photo-${id}?w=900&q=68&auto=format&fit=crop`;
+  const IMG = f => `assets/img/${f}`;
   document.getElementById('heroImg').style.backgroundImage =
-    `url("https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1900&q=72&auto=format&fit=crop")`;
+    `url("assets/img/hero.jpg")`;
 
   // ---- Space data (Ember & Vine — illustrative) ----
   const SPACES = [
-    { key:'hearth', name:'The Hearth Room', img:'1517248135467-4c7edcad34c4', vibe:'Around the open fire. Warm, alive, unforgettable.', forList:['Milestone birthdays','Rehearsal dinners','Team celebrations'], occ:['Milestone','Corporate','Engagement','Holiday Party'], seated:22, standing:35,  min:16 },
-    { key:'cellar', name:'The Cellar',      img:'1547595628-c61a29f496f0', vibe:'Candlelit and tucked among the wine.',            forList:['Intimate dinners','VIP entertaining','Proposals'],           occ:['Milestone','Corporate','Engagement'],                seated:14, standing:24,  min:10 },
-    { key:'vine',   name:'The Vine Room',   img:'1600093463592-8e36ae95ef56', vibe:'Bright, verdant, and built for mingling.',      forList:['Engagement parties','Showers','Launch parties'],             occ:['Engagement','Corporate','Holiday Party'],            seated:44, standing:70,  min:30 },
-    { key:'loft',   name:'The Loft',        img:'1550966871-3ed3cdb5ed0c', vibe:'A private upstairs with full AV.',               forList:['Corporate dinners','Holiday parties','Presentations'],       occ:['Corporate','Holiday Party','NYE'],                   seated:60, standing:100, min:40 },
-    { key:'buyout', name:'Full Buyout',     img:'1521017432531-fbd92d768814', vibe:'The whole restaurant. Entirely yours.',         forList:['Holiday parties','Weddings','Large corporate events'],       occ:['Holiday Party','Corporate','NYE'],                   seated:130,standing:220, min:90 },
+    { key:'hearth', name:'The Hearth Room', img:'hearth.jpg', vibe:'Around the open fire. Warm, alive, unforgettable.', forList:['Milestone birthdays','Rehearsal dinners','Team celebrations'], occ:['Milestone','Corporate','Engagement','Holiday Party'], seated:22, standing:35,  min:16 },
+    { key:'cellar', name:'The Cellar',      img:'cellar.jpg', vibe:'Candlelit and tucked among the wine.',            forList:['Intimate dinners','VIP entertaining','Proposals'],           occ:['Milestone','Corporate','Engagement'],                seated:14, standing:24,  min:10 },
+    { key:'vine',   name:'The Vine Room',   img:'vine.jpg', vibe:'Bright, verdant, and built for mingling.',      forList:['Engagement parties','Showers','Launch parties'],             occ:['Engagement','Corporate','Holiday Party'],            seated:44, standing:70,  min:30 },
+    { key:'loft',   name:'The Loft',        img:'loft.jpg', vibe:'A private upstairs with full AV.',               forList:['Corporate dinners','Holiday parties','Presentations'],       occ:['Corporate','Holiday Party','NYE'],                   seated:60, standing:100, min:40 },
+    { key:'buyout', name:'Full Buyout',     img:'buyout.jpg', vibe:'The whole restaurant. Entirely yours.',         forList:['Holiday parties','Weddings','Large corporate events'],       occ:['Holiday Party','Corporate','NYE'],                   seated:130,standing:220, min:90 },
   ];
   const OCC_LABEL = { Milestone:'Milestone Birthday', 'Holiday Party':'Holiday Party', Corporate:'Corporate Event', Engagement:'Engagement / Shower', NYE:"New Year's Eve" };
   const OCC_FORM  = { Milestone:'Milestone Birthday', 'Holiday Party':'Holiday Party', Corporate:'Corporate Event', Engagement:'Engagement / Shower', NYE:"New Year's Eve" };
