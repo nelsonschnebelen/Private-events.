@@ -4,14 +4,13 @@ The ultimate guide to turning restaurant private events into a high-margin
 revenue pillar — plus a live, conversion-ready example landing page you can
 clone for any venue.
 
-This repo has two self-contained pages, no build step and no dependencies
-(fonts load from Google Fonts):
+This repo has three self-contained pages, no build step and no dependencies:
 
 | File | What it is |
 | --- | --- |
 | [`index.html`](./index.html) | **The Playbook** — the flagship guide. Makes the business case for private events and teaches the whole system: how to *package*, *design the experience*, and *convert* ads into booked events. Interactive. |
 | [`example.html`](./example.html) | **The example page** — a complete private-events landing page for a made-up restaurant, *Ember & Vine*. The playbook's theory, working on a real page. |
-| [`brief.html`](./brief.html) | **The brief builder** — a guided questionnaire a real venue fills out (optionally with AI help), which downloads a clean brief to hand off for building their own packages. Answers autosave in the browser. |
+| [`brief.html`](./brief.html) | **The submission form** — a simple form where a venue submits what it offers: rooms, how many people each holds, and the price to get started, plus contact and occasions. Wired for [Netlify Forms](https://docs.netlify.com/forms/setup/), with a *Download a copy* fallback; answers autosave in the browser. |
 
 The pages link to each other, so a visitor can read the guide and jump
 straight to a live demo of it.

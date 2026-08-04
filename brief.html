@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Private Events Brief — a guided questionnaire a restaurant fills out (with optional AI help) and downloads to hand off for building their private-events packages.">
-<title>The Private Events Brief</title>
+<meta name="description" content="Tell us what your venue offers for private events — your rooms, how many they hold, and the price to get started. A quick submission form.">
+<title>Tell Us What You Offer — Private Events</title>
 <style>
   :root{
     color-scheme: dark;
@@ -13,7 +13,7 @@
     --text:#EFEDE8; --muted:#98A0AC; --dim:#6B7280;
     --ember:#FF7847; --ember2:#FFC65C; --gold:#E3B573;
     --grad:linear-gradient(92deg,#FF6A3D 0%,#FF8E4F 45%,#FFC65C 100%);
-    --good:#6FCF97; --cool:#7FB2E5;
+    --good:#6FCF97;
     --display:"Avenir Next","Helvetica Neue","Segoe UI",system-ui,sans-serif;
     --body:"Avenir Next","Helvetica Neue","Segoe UI",system-ui,sans-serif;
     --serif:Georgia,"Times New Roman",serif;
@@ -23,74 +23,47 @@
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
   body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
   a{color:inherit}
-  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:6px}
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--ember);outline-offset:3px;border-radius:6px}
+  .wrap{max-width:780px;margin:0 auto;padding:0 24px}
   ::selection{background:#FF784755}
 
-  /* nav */
   header{position:sticky;top:0;z-index:60;background:rgba(15,17,21,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
   .wordmark{text-decoration:none;font-weight:700;letter-spacing:-.02em;font-size:1rem;white-space:nowrap}
   .wordmark b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .nav-right{display:flex;gap:10px;align-items:center}
+  .nav-right{display:flex;gap:16px;align-items:center}
   .nav-right a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.8rem}
   .nav-right a:hover{color:var(--text)}
-  .pill{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;color:var(--muted);border:1px solid var(--line2);border-radius:999px;padding:5px 12px}
-  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--dim)}
-  .pill.saved .dot{background:var(--good)}
 
-  /* hero */
-  .hero{padding:70px 0 26px;position:relative;overflow:hidden}
+  .hero{padding:64px 0 8px;position:relative;overflow:hidden}
   .hero-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(48% 40% at 82% 0%,rgba(255,120,71,.12),transparent 70%)}
-  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 20px}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 18px}
   .kicker::before{content:"";width:26px;height:1px;background:var(--grad)}
-  h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;margin:0 0 18px;text-wrap:balance;max-width:20ch}
+  h1{font-family:var(--display);font-weight:700;letter-spacing:-.035em;font-size:clamp(2rem,4.6vw,3rem);line-height:1.05;margin:0 0 16px;text-wrap:balance;max-width:18ch}
   h1 em{font-family:var(--serif);font-style:italic;font-weight:400;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lede{font-size:1.02rem;color:var(--muted);max-width:64ch;margin:0}
+  .lede{font-size:1rem;color:var(--muted);max-width:60ch;margin:0}
 
-  /* progress */
-  .progress{position:sticky;top:60px;z-index:50;background:rgba(15,17,21,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:12px 0}
-  .progress .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .bar{flex:1;min-width:180px;height:8px;border-radius:999px;background:var(--card2);overflow:hidden;border:1px solid var(--line)}
-  .bar i{display:block;height:100%;width:0;background:var(--grad);transition:width .35s ease}
-  .progress b{font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--text);white-space:nowrap}
-  .toolbar{display:flex;gap:8px;flex-wrap:wrap}
+  main{padding-bottom:56px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px 28px;margin:22px 0;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:.7}
+  .card h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.25rem;margin:0 0 4px;display:flex;align-items:baseline;gap:11px}
+  .card h2 .n{font-size:.78rem;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:700}
+  .card .hint{font-size:.85rem;color:var(--muted);margin:2px 0 20px;max-width:68ch}
 
-  /* buttons */
-  .btn{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:10px;text-decoration:none;font-size:.8rem;font-weight:600;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;font-family:var(--body);transition:all .15s;white-space:nowrap}
-  .btn:hover{border-color:var(--ember);color:var(--ember)}
-  .btn-solid{background:var(--grad);color:#1A0E06;border-color:transparent;box-shadow:0 6px 20px rgba(255,120,71,.22)}
-  .btn-solid:hover{transform:translateY(-1px);color:#1A0E06;box-shadow:0 9px 26px rgba(255,120,71,.3)}
-  .btn-ai{border-color:rgba(127,178,229,.5);color:var(--cool)}
-  .btn-ai:hover{border-color:var(--cool);color:#a9cbef}
-  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-  .btn.sm{padding:6px 11px;font-size:.72rem;border-radius:8px}
-
-  /* sections */
-  main{padding-bottom:60px}
-  .sec{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px 30px;margin:22px 0;position:relative;overflow:hidden;scroll-margin-top:150px}
-  .sec::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--grad);opacity:.7}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-  .sec h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.4rem;margin:0;display:flex;align-items:baseline;gap:12px}
-  .sec h2 .n{font-size:.8rem;color:var(--gold);font-variant-numeric:tabular-nums;font-weight:700}
-  .sec .hint{font-size:.85rem;color:var(--muted);margin:2px 0 22px;max-width:70ch}
-
-  /* fields */
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
   .field{display:flex;flex-direction:column;gap:6px}
   .field.full{grid-column:1/-1}
   label,.lbl{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);font-weight:700}
   .lbl-note{text-transform:none;letter-spacing:0;color:var(--dim);font-weight:500;font-size:.74rem}
-  input[type=text],input[type=email],input[type=tel],input[type=url],input[type=number],select,textarea{
+  input[type=text],input[type=email],input[type=tel],input[type=url],input[type=date],textarea{
     width:100%;background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--text);
     font-family:var(--body);font-size:.92rem;padding:11px 13px;transition:border-color .15s}
-  textarea{resize:vertical;min-height:84px;line-height:1.5}
-  input:focus,select:focus,textarea:focus{border-color:var(--ember)}
+  textarea{resize:vertical;min-height:88px;line-height:1.5}
+  input:focus,textarea:focus{border-color:var(--ember)}
   input::placeholder,textarea::placeholder{color:#5c6470}
-  select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+  input[type=date]{color-scheme:dark}
 
-  /* checkbox chips */
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line2);border-radius:999px;padding:8px 14px;font-size:.83rem;color:var(--muted);cursor:pointer;user-select:none;transition:all .15s}
   .chip:hover{border-color:var(--ember)}
@@ -99,49 +72,41 @@
   .chip .tick{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:.66rem}
   .chip.on .tick{background:var(--grad);border-color:transparent;color:#1A0E06}
 
-  /* spaces (repeatable) */
   .rooms{display:flex;flex-direction:column;gap:14px}
-  .room{border:1px solid var(--line2);border-radius:14px;padding:18px;position:relative;background:var(--bg2)}
-  .room .grid{gap:12px}
+  .room{border:1px solid var(--line2);border-radius:14px;padding:16px 18px;background:var(--bg2);position:relative}
   .room .rm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-  .room .rm-head b{font-size:.82rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
+  .room .rm-head b{font-size:.8rem;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
   .room .rm-del{background:transparent;border:1px solid var(--line2);color:var(--muted);border-radius:8px;padding:4px 10px;font-size:.72rem;cursor:pointer;font-family:var(--body)}
   .room .rm-del:hover{border-color:#e5757c;color:#e5757c}
-  .add-room{align-self:flex-start;margin-top:2px}
+  .rg{display:grid;grid-template-columns:1.4fr .8fr 1fr;gap:12px}
+  @media(max-width:560px){.rg{grid-template-columns:1fr}}
+  .add-room{margin-top:2px}
 
-  /* AI panel */
-  .ai{background:linear-gradient(170deg,#141b24,#0f141b);border:1px solid rgba(127,178,229,.3);border-radius:18px;padding:24px 26px;margin:22px 0}
-  .ai::before{display:none}
-  .ai h2{color:var(--cool)}
-  .ai .cool{color:var(--cool)}
-  .ai-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .ai-note{font-size:.78rem;color:var(--dim);margin-top:14px}
-  .ai-note b{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:11px;text-decoration:none;font-size:.85rem;font-weight:600;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;font-family:var(--body);transition:all .15s;white-space:nowrap}
+  .btn:hover{border-color:var(--ember);color:var(--ember)}
+  .btn.sm{padding:7px 13px;font-size:.76rem;border-radius:9px}
+  .btn-solid{background:var(--grad);color:#1A0E06;border-color:transparent;box-shadow:0 6px 20px rgba(255,120,71,.22);font-size:.92rem;padding:14px 26px}
+  .btn-solid:hover{transform:translateY(-1px);color:#1A0E06;box-shadow:0 9px 26px rgba(255,120,71,.3)}
+  .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
 
-  /* modal */
-  .backdrop{position:fixed;inset:0;background:rgba(6,8,11,.7);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-  .backdrop.open{display:flex}
-  .modal{background:var(--card);border:1px solid var(--line2);border-radius:18px;max-width:520px;width:100%;padding:28px;max-height:90vh;overflow:auto}
-  .modal h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.3rem;margin:0 0 6px}
-  .modal p{font-size:.85rem;color:var(--muted);margin:0 0 18px}
-  .modal .field{margin-bottom:14px}
-  .modal-foot{display:flex;justify-content:space-between;gap:10px;margin-top:8px;flex-wrap:wrap}
-  .keynote{font-size:.74rem;color:var(--dim);border:1px solid var(--line);border-radius:10px;padding:11px 13px;background:var(--bg2);margin-bottom:16px}
-  .keynote b{color:var(--good)}
+  .submit-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:4px}
+  .save-note{font-size:.76rem;color:var(--dim)}
+  .save-note b{color:var(--muted)}
 
-  /* toast */
+  .success{text-align:center;padding:52px 28px}
+  .success .ico{width:58px;height:58px;border-radius:50%;background:rgba(111,207,151,.14);border:1px solid rgba(111,207,151,.5);color:var(--good);display:grid;place-items:center;font-size:1.6rem;margin:0 auto 18px}
+  .success h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.6rem;margin:0 0 8px}
+  .success p{color:var(--muted);max-width:48ch;margin:0 auto 22px}
+
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:#1c222b;border:1px solid var(--line2);color:var(--text);padding:11px 18px;border-radius:12px;font-size:.85rem;z-index:200;opacity:0;pointer-events:none;transition:all .25s;box-shadow:0 12px 40px rgba(0,0,0,.4);max-width:88vw;text-align:center}
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
   .toast.err{border-color:#e5757c}
-
-  /* misc */
-  .foot-cta{text-align:center;padding:36px 0 10px}
-  .foot-cta .btn-solid{font-size:.92rem;padding:14px 26px}
-  footer{border-top:1px solid var(--line);padding:26px 0;font-size:.74rem;color:var(--dim);margin-top:30px}
-  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
   .spin{display:inline-block;width:13px;height:13px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sp .7s linear infinite}
   @keyframes sp{to{transform:rotate(360deg)}}
-  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+  footer{border-top:1px solid var(--line);padding:26px 0;font-size:.74rem;color:var(--dim);margin-top:20px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .hp{position:absolute;left:-9999px}
 </style>
 </head>
 <body>
@@ -149,7 +114,6 @@
   <div class="wrap nav">
     <a class="wordmark" href="index.html">The Private Events <b>Playbook</b></a>
     <div class="nav-right">
-      <span class="pill" id="savePill"><span class="dot"></span><span id="saveTxt">Not started</span></span>
       <a href="index.html">← Playbook</a>
       <a href="example.html">Live example →</a>
     </div>
@@ -160,636 +124,205 @@
   <div class="hero">
     <div class="hero-glow"></div>
     <div class="wrap">
-      <p class="kicker">The private events brief</p>
-      <h1>Everything a designer needs to build <em>your packages.</em></h1>
-      <p class="lede">Fill this out about your venue — rooms, pricing, food, the way you handle inquiries — and download a clean brief to hand to whoever builds your private-events page and packages. Stuck on a section? Let AI draft a first pass you can edit. Your answers save automatically in this browser.</p>
-    </div>
-  </div>
-
-  <div class="progress">
-    <div class="wrap">
-      <div class="bar"><i id="barFill"></i></div>
-      <b id="pctTxt">0% complete</b>
-      <div class="toolbar">
-        <button class="btn sm" id="btnImportTop" type="button">Import a saved brief</button>
-        <button class="btn sm" id="btnReset" type="button">Reset</button>
-      </div>
+      <p class="kicker">Private events · quick submission</p>
+      <h1>Tell us what your venue <em>offers.</em></h1>
+      <p class="lede">Three quick things and a couple of extras: your rooms, how many people each holds, and the price to get started. Send it over and we'll turn it into a private-events page and packages built for your venue.</p>
     </div>
   </div>
 
   <div class="wrap">
+    <!-- Netlify form. On deploy, submissions are captured automatically (see README). -->
+    <form id="offerForm" name="venue-offering" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="venue-offering">
+      <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <!-- Hidden compiled fields so Netlify captures the dynamic rooms + occasions -->
+      <textarea class="hp" name="spaces" aria-hidden="true" tabindex="-1"></textarea>
+      <input class="hp" name="occasions" aria-hidden="true" tabindex="-1">
 
-    <!-- AI ASSIST -->
-    <section class="ai" id="aiPanel">
-      <div class="sec-head">
-        <h2>✨ Draft it with AI <span class="lbl-note">optional</span></h2>
-      </div>
-      <p class="hint">Give AI a few basics — venue name, city, the kind of place it is — and it will propose a full first draft (spaces, packages, pricing, copy) that lands in the fields below for you to refine. Everything stays editable; nothing is sent anywhere until you ask.</p>
-      <div class="grid">
-        <div class="field"><label for="aiName">Venue name</label><input type="text" id="aiName" placeholder="e.g. Ember &amp; Vine"></div>
-        <div class="field"><label for="aiCity">City / neighborhood</label><input type="text" id="aiCity" placeholder="e.g. Portland, OR"></div>
-        <div class="field full"><label for="aiConcept">In a sentence, what kind of restaurant is it?</label><input type="text" id="aiConcept" placeholder="e.g. a wood-fired kitchen &amp; natural-wine bar, warm and a little cinematic"></div>
-      </div>
-      <div class="ai-actions">
-        <button class="btn btn-ai" id="btnAiDraft" type="button">✨ Draft the whole brief</button>
-        <button class="btn" id="btnAiPrompt" type="button">Copy an AI prompt</button>
-        <button class="btn" id="btnAiPaste" type="button">Paste an AI answer</button>
-        <button class="btn" id="btnAiSettings" type="button">AI settings</button>
-      </div>
-      <p class="ai-note" id="aiStatusNote"><b>No API key needed to start.</b> Without one, the buttons above hand you a ready-made prompt to paste into Claude or ChatGPT — then paste the answer back to fill the form. Add your own Claude key in <b>AI settings</b> to have it fill the form directly.</p>
-    </section>
+      <!-- 1. VENUE + CONTACT -->
+      <section class="card">
+        <h2><span class="n">01</span> Your venue &amp; contact</h2>
+        <p class="hint">Who you are and where to reach you when we've got questions or a draft to show.</p>
+        <div class="grid">
+          <div class="field"><label for="v-name">Restaurant name</label><input type="text" id="v-name" name="venue-name" placeholder="Ember &amp; Vine" required></div>
+          <div class="field"><label for="v-city">City / area</label><input type="text" id="v-city" name="city" placeholder="Portland, OR"></div>
+          <div class="field"><label for="c-name">Your name</label><input type="text" id="c-name" name="contact-name" placeholder="Alex Rivera"></div>
+          <div class="field"><label for="c-email">Email</label><input type="email" id="c-email" name="email" placeholder="events@venue.com" required></div>
+          <div class="field"><label for="c-phone">Phone <span class="lbl-note">optional</span></label><input type="tel" id="c-phone" name="phone" placeholder="(555) 555-5555"></div>
+          <div class="field"><label for="v-web">Website <span class="lbl-note">optional</span></label><input type="url" id="v-web" name="website" placeholder="https://…"></div>
+        </div>
+      </section>
 
-    <!-- 1. VENUE -->
-    <section class="sec" id="s-venue">
-      <div class="sec-head"><h2><span class="n">01</span> The venue</h2></div>
-      <p class="hint">The basics your packages get built around — and the voice they should be written in.</p>
-      <div class="grid">
-        <div class="field"><label for="v-name">Restaurant name</label><input type="text" id="v-name" data-path="venue.name" placeholder="Ember &amp; Vine"></div>
-        <div class="field"><label for="v-city">City / area</label><input type="text" id="v-city" data-path="venue.city" placeholder="Portland, OR"></div>
-        <div class="field"><label for="v-concept">Concept <span class="lbl-note">the elevator line</span></label><input type="text" id="v-concept" data-path="venue.concept" placeholder="Wood-fired kitchen &amp; natural-wine bar"></div>
-        <div class="field"><label for="v-cuisine">Cuisine / kitchen style</label><input type="text" id="v-cuisine" data-path="venue.cuisine" placeholder="Seasonal Pacific Northwest, live-fire"></div>
-        <div class="field"><label for="v-vibe">Vibe in three words</label><input type="text" id="v-vibe" data-path="venue.vibe" placeholder="warm · cinematic · unhurried"></div>
-        <div class="field"><label for="v-web">Website</label><input type="url" id="v-web" data-path="venue.website" placeholder="https://…"></div>
-        <div class="field full"><label for="v-colors">Brand colors <span class="lbl-note">names or hex, if you know them</span></label><input type="text" id="v-colors" data-path="venue.colors" placeholder="ember orange #FF7847, deep wine, warm cream"></div>
+      <!-- 2. SPACES: the core -->
+      <section class="card">
+        <h2><span class="n">02</span> Your spaces</h2>
+        <p class="hint">The heart of it — each room or area you can book for a private event, how many people it seats, and the price to get started (a minimum spend or a per-guest starting price, whatever you use).</p>
+        <div class="rooms" id="rooms"></div>
+        <button class="btn sm add-room" id="addRoom" type="button">+ Add another space</button>
+      </section>
+
+      <!-- 3. OCCASIONS -->
+      <section class="card">
+        <h2><span class="n">03</span> Occasions you host</h2>
+        <p class="hint">Tick anything you'd happily take a booking for.</p>
+        <div class="chips" id="occChips"></div>
+      </section>
+
+      <!-- 4. ANYTHING ELSE -->
+      <section class="card">
+        <h2><span class="n">04</span> Anything else <span class="lbl-note" style="font-size:.8rem">optional</span></h2>
+        <p class="hint">Signature dishes, what makes your events special, a date you're trying to fill, house rules — whatever's worth knowing. Keep it short.</p>
+        <div class="field full"><textarea id="n-notes" name="notes" placeholder="e.g. Wood-fired ribeye is our showpiece; the Cellar is candlelit and tucked below the bar; we can do full buyouts on Sundays."></textarea></div>
+      </section>
+
+      <div class="submit-row">
+        <button class="btn btn-solid" id="submitBtn" type="submit">Send it over</button>
+        <button class="btn" id="downloadBtn" type="button">Download a copy</button>
+        <span class="save-note" id="saveNote"></span>
       </div>
-    </section>
+    </form>
 
-    <!-- 2. SPACES -->
-    <section class="sec" id="s-spaces">
-      <div class="sec-head"><h2><span class="n">02</span> Your spaces</h2></div>
-      <p class="hint">Every room or area you can sell for a private event. Capacities and minimums are what let a planner self-qualify before they even inquire — the more concrete, the better.</p>
-      <div class="rooms" id="rooms"></div>
-      <button class="btn sm add-room" id="addRoom" type="button">+ Add a space</button>
-    </section>
-
-    <!-- 3. OCCASIONS -->
-    <section class="sec" id="s-occasions">
-      <div class="sec-head"><h2><span class="n">03</span> Occasions you host</h2></div>
-      <p class="hint">Tick everything you'd happily take a booking for. This shapes the packages and the ad targeting.</p>
-      <div class="chips" id="occChips" data-group="occasions"></div>
-      <div class="field full" style="margin-top:14px"><label for="occ-other">Anything else you host</label><input type="text" id="occ-other" data-path="occasionsOther" placeholder="e.g. cooking classes, wine dinners, memorials"></div>
-    </section>
-
-    <!-- 4. FOOD & BEVERAGE -->
-    <section class="sec" id="s-food">
-      <div class="sec-head"><h2><span class="n">04</span> Food &amp; beverage</h2></div>
-      <p class="hint">How you like to feed a group, plus the dishes and drinks worth building a package around.</p>
-      <div class="field full" style="margin-bottom:14px">
-        <span class="lbl">Service styles you offer</span>
-        <div class="chips" id="styleChips" data-group="food.styles" style="margin-top:8px"></div>
+    <!-- SUCCESS STATE -->
+    <div class="card success" id="successCard" hidden>
+      <div class="ico">✓</div>
+      <h2>Got it — thank you.</h2>
+      <p id="successMsg">Your details are in. We'll be in touch at the email you gave us. Want a copy for your records?</p>
+      <div class="submit-row" style="justify-content:center">
+        <button class="btn" id="successDownload" type="button">Download a copy</button>
+        <a class="btn btn-solid" href="example.html" style="text-decoration:none">See an example page →</a>
       </div>
-      <div class="grid">
-        <div class="field full"><label for="f-sig">Signature dishes worth featuring</label><textarea id="f-sig" data-path="food.signatures" placeholder="The wood-fired ribeye, tableside branzino, the burrata &amp; charred pear…"></textarea></div>
-        <div class="field"><label for="f-bar">Bar &amp; beverage options</label><textarea id="f-bar" data-path="food.bar" placeholder="Open bar, consumption bar, wine pairings, a signature cocktail…"></textarea></div>
-        <div class="field"><label for="f-diet">How you handle dietary needs</label><textarea id="f-diet" data-path="food.dietary" placeholder="Vegan / GF / allergies flagged on the form, confirmed on the menu card…"></textarea></div>
-      </div>
-    </section>
-
-    <!-- 5. PACKAGES & PRICING -->
-    <section class="sec" id="s-packages">
-      <div class="sec-head"><h2><span class="n">05</span> Packages &amp; pricing</h2></div>
-      <p class="hint">The all-in math. Even rough numbers here let the designer build the instant-quote logic the playbook recommends.</p>
-      <div class="grid">
-        <div class="field"><label for="p-tiers">How many package tiers?</label>
-          <select id="p-tiers" data-path="packages.tiers">
-            <option value="">Choose…</option>
-            <option>1</option><option selected>3</option><option>2</option><option>4</option><option>Not sure yet</option>
-          </select></div>
-        <div class="field"><label for="p-price">Rough price points <span class="lbl-note">per guest</span></label><input type="text" id="p-price" data-path="packages.pricePoints" placeholder="$75 / $110 / $150 per guest"></div>
-        <div class="field"><label for="p-deposit">Deposit to hold a date <span class="lbl-note">%</span></label><input type="text" id="p-deposit" data-path="packages.deposit" placeholder="25"></div>
-        <div class="field"><label for="p-svc">Service charge <span class="lbl-note">%</span></label><input type="text" id="p-svc" data-path="packages.service" placeholder="20"></div>
-        <div class="field"><label for="p-tax">Sales tax <span class="lbl-note">%</span></label><input type="text" id="p-tax" data-path="packages.tax" placeholder="8"></div>
-        <div class="field"><label for="p-peak">Peak-date premium <span class="lbl-note">%, if any</span></label><input type="text" id="p-peak" data-path="packages.peakPremium" placeholder="15"></div>
-        <div class="field full"><label for="p-incl">What's included at each tier</label><textarea id="p-incl" data-path="packages.inclusions" placeholder="Tier by tier: courses, room, hours, staffing, extras (cake, AV, menus)…"></textarea></div>
-      </div>
-    </section>
-
-    <!-- 6. THE OFFER & AUDIENCE -->
-    <section class="sec" id="s-offer">
-      <div class="sec-head"><h2><span class="n">06</span> The offer &amp; who it's for</h2></div>
-      <p class="hint">The inputs behind the ad strategy — who you're targeting, how far out, and what a booking is worth.</p>
-      <div class="grid">
-        <div class="field"><label for="o-buyer">Who typically books you</label><input type="text" id="o-buyer" data-path="offer.buyer" placeholder="Office managers, EAs, HR, couples, families"></div>
-        <div class="field"><label for="o-radius">Local targeting radius</label><input type="text" id="o-radius" data-path="offer.radius" placeholder="~15 miles"></div>
-        <div class="field"><label for="o-season">Season / dates you're pushing</label><input type="text" id="o-season" data-path="offer.season" placeholder="Q4 holiday parties + off-peak January"></div>
-        <div class="field"><label for="o-val">Average booked event value</label><input type="text" id="o-val" data-path="offer.avgValue" placeholder="$4,200"></div>
-        <div class="field full"><label for="o-goals">What a great season looks like</label><textarea id="o-goals" data-path="offer.goals" placeholder="e.g. book 30 events, fill weeknights, rebook a third for next year…"></textarea></div>
-      </div>
-    </section>
-
-    <!-- 7. LOGISTICS -->
-    <section class="sec" id="s-logistics">
-      <div class="sec-head"><h2><span class="n">07</span> Logistics &amp; policies</h2></div>
-      <p class="hint">The practical answers a planner needs before they commit.</p>
-      <div class="grid">
-        <div class="field"><label for="l-window">Typical event window</label><input type="text" id="l-window" data-path="logistics.window" placeholder="3.5 hours, or by arrangement"></div>
-        <div class="field"><label for="l-av">AV / sound / screens</label><input type="text" id="l-av" data-path="logistics.av" placeholder="House sound + toast mic; projector on request"></div>
-        <div class="field"><label for="l-park">Parking / valet / transit</label><input type="text" id="l-park" data-path="logistics.parking" placeholder="Street + nearby garage; valet available"></div>
-        <div class="field"><label for="l-lead">Lead time you prefer</label><input type="text" id="l-lead" data-path="logistics.leadTime" placeholder="2+ weeks; peak dates book months out"></div>
-        <div class="field full"><label for="l-cancel">Cancellation / weather policy</label><textarea id="l-cancel" data-path="logistics.cancellation" placeholder="Deposit terms, date-transfer window, snow clause…"></textarea></div>
-      </div>
-    </section>
-
-    <!-- 8. HANDLING INQUIRIES -->
-    <section class="sec" id="s-handling">
-      <div class="sec-head"><h2><span class="n">08</span> Handling inquiries</h2></div>
-      <p class="hint">The make-or-break of the whole funnel: who answers, how fast, and where the leads land.</p>
-      <div class="grid">
-        <div class="field"><label for="h-owner">Who owns inquiries</label><input type="text" id="h-owner" data-path="handling.owner" placeholder="Name / role of the events lead"></div>
-        <div class="field"><label for="h-resp">Response-time promise</label><input type="text" id="h-resp" data-path="handling.responseTime" placeholder="Within 2 hours, business hours"></div>
-        <div class="field"><label for="h-email">Inquiry email</label><input type="email" id="h-email" data-path="handling.email" placeholder="events@venue.com"></div>
-        <div class="field"><label for="h-phone">Inquiry phone</label><input type="tel" id="h-phone" data-path="handling.phone" placeholder="(555) 555-5555"></div>
-        <div class="field full"><label for="h-tools">Where leads go <span class="lbl-note">inbox, CRM, form tool</span></label><input type="text" id="h-tools" data-path="handling.tools" placeholder="Netlify Forms → shared inbox / Tripleseat / a spreadsheet"></div>
-      </div>
-    </section>
-
-    <!-- 9. ASSETS -->
-    <section class="sec" id="s-assets">
-      <div class="sec-head"><h2><span class="n">09</span> Photos &amp; assets</h2></div>
-      <p class="hint">What the designer has to work with — and what they'll need to source.</p>
-      <div class="grid">
-        <div class="field"><label for="a-photos">Photography</label>
-          <select id="a-photos" data-path="assets.photos">
-            <option value="">Choose…</option>
-            <option>We have great photos of the rooms &amp; food</option>
-            <option>Some photos, but gaps</option>
-            <option>Need help sourcing / a shoot</option>
-          </select></div>
-        <div class="field"><label for="a-logo">Logo &amp; brand files</label>
-          <select id="a-logo" data-path="assets.logo">
-            <option value="">Choose…</option>
-            <option>Yes — logo + brand kit</option>
-            <option>Logo only</option>
-            <option>None yet</option>
-          </select></div>
-        <div class="field full"><label for="a-menus">Existing menus to reference</label><textarea id="a-menus" data-path="assets.menus" placeholder="Paste or describe any current group / prix-fixe menus…"></textarea></div>
-        <div class="field full"><label for="a-testi">A testimonial or two <span class="lbl-note">gold for the page</span></label><textarea id="a-testi" data-path="assets.testimonials" placeholder="&quot;They made our holiday party effortless…&quot; — name, company"></textarea></div>
-      </div>
-    </section>
-
-    <!-- 10. NOTES -->
-    <section class="sec" id="s-notes">
-      <div class="sec-head">
-        <h2><span class="n">10</span> Anything else</h2>
-        <button class="btn sm btn-ai" data-ai-text="notes" data-ai-ctx="anything the venue owner wants the package designer to know" type="button">✨ Help me phrase this</button>
-      </div>
-      <p class="hint">Constraints, must-haves, a competitor you admire, the thing that makes your events special — whatever the designer should know.</p>
-      <div class="field full"><textarea id="n-notes" data-path="notes" style="min-height:120px" placeholder="Tell the designer anything that didn't fit above…"></textarea></div>
-    </section>
-
-    <!-- DELIVER -->
-    <section class="sec" id="s-deliver">
-      <div class="sec-head"><h2><span class="n">✓</span> Download &amp; send</h2></div>
-      <p class="hint">Download the finished brief and send it to whoever's building your packages. Markdown is the most useful format to hand off; JSON lets you (or them) reload it here later.</p>
-      <div class="toolbar" style="gap:10px">
-        <button class="btn btn-solid" id="btnMd" type="button">⬇ Download brief (.md)</button>
-        <button class="btn" id="btnCopy" type="button">Copy to clipboard</button>
-        <button class="btn" id="btnPrint" type="button">Print / Save as PDF</button>
-        <button class="btn" id="btnJson" type="button">Download data (.json)</button>
-        <button class="btn" id="btnImport" type="button">Import a .json</button>
-      </div>
-      <input type="file" id="fileInput" accept=".json,application/json" class="visually-hidden">
-    </section>
-
-    <div class="foot-cta">
-      <a class="btn btn-solid" href="example.html">See a finished example page →</a>
     </div>
   </div>
 </main>
-
-<!-- AI SETTINGS MODAL -->
-<div class="backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-  <div class="modal">
-    <h3 id="settingsTitle">AI settings</h3>
-    <p>Bring your own Claude API key and the AI buttons will fill the form directly. Leave it blank and they'll instead hand you a prompt to paste into any assistant.</p>
-    <div class="keynote">🔒 Your key is stored <b>only in this browser</b> (localStorage) and sent straight to Anthropic's API from your device. It never touches any server of ours. Clear it anytime.</div>
-    <div class="field">
-      <label for="setKey">Anthropic API key <span class="lbl-note">starts with sk-ant-</span></label>
-      <input type="password" id="setKey" placeholder="sk-ant-…" autocomplete="off">
-    </div>
-    <div class="field">
-      <label for="setModel">Model</label>
-      <input type="text" id="setModel" placeholder="claude-opus-5">
-    </div>
-    <div class="modal-foot">
-      <button class="btn" id="setClear" type="button">Clear key</button>
-      <div style="display:flex;gap:8px">
-        <button class="btn" id="setCancel" type="button">Cancel</button>
-        <button class="btn btn-solid" id="setSave" type="button">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PASTE AI ANSWER MODAL -->
-<div class="backdrop" id="pasteModal" role="dialog" aria-modal="true" aria-labelledby="pasteTitle">
-  <div class="modal">
-    <h3 id="pasteTitle">Paste an AI answer</h3>
-    <p>Paste what the assistant gave you back (the JSON block from the copied prompt). It'll fill the fields below — you can still edit everything.</p>
-    <div class="field"><textarea id="pasteBox" style="min-height:200px" placeholder='{ "venue": { … }, "spaces": [ … ] }'></textarea></div>
-    <div class="modal-foot">
-      <button class="btn" id="pasteCancel" type="button">Cancel</button>
-      <button class="btn btn-solid" id="pasteApply" type="button">Fill the form</button>
-    </div>
-  </div>
-</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <footer>
   <div class="wrap">
-    <span>The Private Events Brief · part of the Playbook</span>
-    <span>Saved locally in your browser · nothing is uploaded</span>
+    <span>Private events submission · part of the Playbook</span>
+    <span>Your draft saves in this browser as you type</span>
   </div>
 </footer>
 
 <script>
-/* ------------------------------------------------------------------ */
-/*  Data model + persistence                                           */
-/* ------------------------------------------------------------------ */
-const STORE_KEY = 'pe-brief-v1';
-const AI_KEY = 'pe-brief-ai';
+const STORE='pe-offer-v1';
+const OCCASIONS=['Company holiday party','Team dinner','Client entertaining','Birthday / celebration','Rehearsal dinner','Micro-wedding','Full buyout','Cocktail reception','Wine / tasting dinner','Baby / bridal shower'];
 
-const OCCASIONS = ['Company holiday party','Team dinner','Client entertaining','New Year’s Eve','Full buyout','Birthday / celebration','Rehearsal dinner','Micro-wedding','Corporate offsite','Wine / tasting dinner','Fundraiser','Baby / bridal shower'];
-const STYLES = ['Family-style','Plated multi-course','Chef’s tasting','Buffet / stations','Passed canapés','Cocktail reception','Brunch','Interactive (live-fire, raw bar)'];
+const form=document.getElementById('offerForm');
+const roomsEl=document.getElementById('rooms');
+const occEl=document.getElementById('occChips');
+const toastEl=document.getElementById('toast');
+let toastTimer;
+function toast(msg,err){toastEl.textContent=msg;toastEl.classList.toggle('err',!!err);toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),err?4000:2200);}
 
-function emptyModel(){
-  return {
-    venue:{name:'',city:'',concept:'',cuisine:'',vibe:'',website:'',colors:''},
-    spaces:[],
-    occasions:[], occasionsOther:'',
-    food:{styles:[],signatures:'',bar:'',dietary:''},
-    packages:{tiers:'',pricePoints:'',deposit:'',service:'',tax:'',peakPremium:'',inclusions:''},
-    offer:{buyer:'',radius:'',season:'',avgValue:'',goals:''},
-    logistics:{window:'',av:'',parking:'',leadTime:'',cancellation:''},
-    handling:{owner:'',responseTime:'',email:'',phone:'',tools:''},
-    assets:{photos:'',logo:'',menus:'',testimonials:''},
-    notes:''
-  };
-}
-let model = emptyModel();
+/* occasion chips */
+occEl.innerHTML=OCCASIONS.map(v=>`<label class="chip"><input type="checkbox" value="${v.replace(/"/g,'&quot;')}"><span class="tick">✓</span>${v}</label>`).join('');
+occEl.querySelectorAll('input').forEach(cb=>cb.addEventListener('change',()=>{cb.closest('.chip').classList.toggle('on',cb.checked);save();}));
 
-const get = (obj,path)=>path.split('.').reduce((o,k)=>o==null?undefined:o[k],obj);
-const set = (obj,path,val)=>{const ks=path.split('.');let o=obj;for(let i=0;i<ks.length-1;i++){o[ks[i]]=o[ks[i]]||{};o=o[ks[i]];}o[ks[ks.length-1]]=val;};
-
-/* ------------------------------------------------------------------ */
-/*  Build dynamic UI (chips + rooms)                                   */
-/* ------------------------------------------------------------------ */
-function buildChips(container,values){
-  container.innerHTML = values.map(v=>`
-    <label class="chip"><input type="checkbox" value="${v.replace(/"/g,'&quot;')}"><span class="tick">✓</span>${v}</label>`).join('');
-  container.querySelectorAll('input').forEach(cb=>{
-    cb.addEventListener('change',()=>{cb.closest('.chip').classList.toggle('on',cb.checked);collect();save();});
-  });
-}
-buildChips(document.getElementById('occChips'),OCCASIONS);
-buildChips(document.getElementById('styleChips'),STYLES);
-
-const roomsEl = document.getElementById('rooms');
-function roomTemplate(idx,data={}){
+/* rooms */
+function roomTemplate(data){data=data||{};
   const d=k=>(data[k]||'').replace(/"/g,'&quot;');
-  const el=document.createElement('div');
-  el.className='room';
+  const el=document.createElement('div');el.className='room';
   el.innerHTML=`
-    <div class="rm-head"><b>Space ${idx+1}</b><button class="rm-del" type="button">Remove</button></div>
-    <div class="grid">
-      <div class="field"><label>Name</label><input type="text" data-field="name" value="${d('name')}" placeholder="The Cellar"></div>
-      <div class="field"><label>Best for <span class="lbl-note">which occasions</span></label><input type="text" data-field="bestFor" value="${d('bestFor')}" placeholder="Intimate dinners, client events"></div>
-      <div class="field"><label>Seated capacity</label><input type="text" data-field="seated" value="${d('seated')}" placeholder="24"></div>
-      <div class="field"><label>Standing capacity</label><input type="text" data-field="standing" value="${d('standing')}" placeholder="40"></div>
-      <div class="field"><label>Minimum spend</label><input type="text" data-field="minimum" value="${d('minimum')}" placeholder="$1,500 food &amp; bev"></div>
-      <div class="field"><label>Photo URL <span class="lbl-note">optional</span></label><input type="url" data-field="img" value="${d('img')}" placeholder="https://…"></div>
-      <div class="field full"><label>The vibe of this room</label><input type="text" data-field="note" value="${d('note')}" placeholder="Brick-walled, candlelit, tucked below the bar"></div>
+    <div class="rm-head"><b class="rm-n">Space</b><button class="rm-del" type="button">Remove</button></div>
+    <div class="rg">
+      <div class="field"><label>Room / area name</label><input type="text" data-f="name" value="${d('name')}" placeholder="The Cellar"></div>
+      <div class="field"><label>Seats <span class="lbl-note">people</span></label><input type="text" data-f="seats" value="${d('seats')}" placeholder="24"></div>
+      <div class="field"><label>Price to start</label><input type="text" data-f="price" value="${d('price')}" placeholder="$1,500 min or $95/guest"></div>
+      <div class="field full"><label>A quick note <span class="lbl-note">optional</span></label><input type="text" data-f="note" value="${d('note')}" placeholder="Brick-walled &amp; candlelit; best for dinners"></div>
     </div>`;
-  el.querySelector('.rm-del').addEventListener('click',()=>{el.remove();renumberRooms();collect();save();});
-  el.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{collect();save();}));
+  el.querySelector('.rm-del').addEventListener('click',()=>{el.remove();renumber();save();});
+  el.querySelectorAll('input').forEach(i=>i.addEventListener('input',save));
   return el;
 }
-function renumberRooms(){[...roomsEl.children].forEach((el,i)=>el.querySelector('.rm-head b').textContent='Space '+(i+1));}
-function addRoom(data){roomsEl.appendChild(roomTemplate(roomsEl.children.length,data));renumberRooms();}
-document.getElementById('addRoom').addEventListener('click',()=>{addRoom({});collect();save();});
+function renumber(){[...roomsEl.children].forEach((el,i)=>el.querySelector('.rm-n').textContent='Space '+(i+1));}
+function addRoom(data){roomsEl.appendChild(roomTemplate(data));renumber();}
+document.getElementById('addRoom').addEventListener('click',()=>{addRoom();save();});
 
-/* ------------------------------------------------------------------ */
-/*  Collect / hydrate                                                  */
-/* ------------------------------------------------------------------ */
-function collect(){
-  document.querySelectorAll('[data-path]').forEach(el=>set(model,el.dataset.path,el.value));
-  document.querySelectorAll('[data-group]').forEach(g=>{
-    set(model,g.dataset.group,[...g.querySelectorAll('input:checked')].map(i=>i.value));
-  });
-  model.spaces=[...roomsEl.children].map(el=>{
-    const o={};el.querySelectorAll('[data-field]').forEach(f=>o[f.dataset.field]=f.value);return o;
-  });
-  updateProgress();
+/* collect / persist */
+function collectRooms(){return [...roomsEl.children].map(el=>{const o={};el.querySelectorAll('[data-f]').forEach(f=>o[f.dataset.f]=f.value.trim());return o;}).filter(r=>r.name||r.seats||r.price||r.note);}
+function collectOccasions(){return [...occEl.querySelectorAll('input:checked')].map(i=>i.value);}
+function currentData(){
+  const d={};
+  form.querySelectorAll('input[name]:not(.hp),textarea[name]:not(.hp)').forEach(el=>{if(el.type!=='checkbox')d[el.name]=el.value;});
+  d.rooms=collectRooms();d.occasions=collectOccasions();
+  return d;
 }
-function hydrate(){
-  document.querySelectorAll('[data-path]').forEach(el=>{const v=get(model,el.dataset.path);if(v!=null)el.value=v;});
-  document.querySelectorAll('[data-group]').forEach(g=>{
-    const vals=get(model,g.dataset.group)||[];
-    g.querySelectorAll('input').forEach(cb=>{cb.checked=vals.includes(cb.value);cb.closest('.chip').classList.toggle('on',cb.checked);});
-  });
-  roomsEl.innerHTML='';
-  (model.spaces||[]).forEach(d=>addRoom(d));
-  if(roomsEl.children.length===0)addRoom({});
-  updateProgress();
+function compileHidden(){
+  const rooms=collectRooms();
+  form.querySelector('[name="spaces"]').value=rooms.map((r,i)=>
+    `${i+1}. ${r.name||'(unnamed)'} — ${r.seats?('seats '+r.seats):'seats ?'} — ${r.price?('from '+r.price):'price ?'}${r.note?(' — '+r.note):''}`).join('\n');
+  form.querySelector('[name="occasions"]').value=collectOccasions().join(', ');
 }
-
-/* ------------------------------------------------------------------ */
-/*  Progress + save                                                    */
-/* ------------------------------------------------------------------ */
-const savePill=document.getElementById('savePill'),saveTxt=document.getElementById('saveTxt');
 let saveTimer;
 function save(){
-  try{localStorage.setItem(STORE_KEY,JSON.stringify(model));}catch(e){}
-  savePill.classList.add('saved');saveTxt.textContent='Saved';
-  clearTimeout(saveTimer);
-  saveTimer=setTimeout(()=>{saveTxt.textContent='Saved to this browser';},1200);
+  compileHidden();
+  try{localStorage.setItem(STORE,JSON.stringify(currentData()));}catch(e){}
+  const n=document.getElementById('saveNote');n.innerHTML='<b>Saved</b> in this browser';
+  clearTimeout(saveTimer);saveTimer=setTimeout(()=>{n.textContent='';},1500);
 }
-function countFilled(){
-  let filled=0,total=0;
-  const scan=(o)=>{for(const k in o){const v=o[k];
-    if(Array.isArray(v)){if(k==='spaces'){total++;if(v.length&&v.some(s=>s.name))filled++;}else{total++;if(v.length)filled++;}}
-    else if(v&&typeof v==='object')scan(v);
-    else{total++;if(String(v).trim())filled++;}
-  }};
-  scan(model);return{filled,total};
-}
-function updateProgress(){
-  const{filled,total}=countFilled();
-  const pct=total?Math.round(filled/total*100):0;
-  document.getElementById('barFill').style.width=pct+'%';
-  document.getElementById('pctTxt').textContent=pct+'% complete';
-}
+form.querySelectorAll('input[name]:not(.hp),textarea[name]:not(.hp)').forEach(el=>el.addEventListener('input',save));
 
-/* ------------------------------------------------------------------ */
-/*  Toast                                                              */
-/* ------------------------------------------------------------------ */
-const toastEl=document.getElementById('toast');let toastTimer;
-function toast(msg,isErr){
-  toastEl.textContent=msg;toastEl.classList.toggle('err',!!isErr);toastEl.classList.add('show');
-  clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),isErr?4200:2400);
-}
-
-/* Wire generic inputs */
-document.querySelectorAll('[data-path]').forEach(el=>{
-  el.addEventListener('input',()=>{collect();save();});
-  el.addEventListener('change',()=>{collect();save();});
-});
-
-/* ------------------------------------------------------------------ */
-/*  Markdown export                                                    */
-/* ------------------------------------------------------------------ */
-function mdEscape(s){return (s||'').toString().trim();}
-function line(label,val){val=mdEscape(val);return val?`- **${label}:** ${val}\n`:'';}
-function buildMarkdown(){
-  const m=model,v=m.venue;
-  let md=`# Private Events Brief — ${mdEscape(v.name)||'Untitled venue'}\n\n`;
-  md+=`*Prepared to brief the design of a private-events landing page & package set.*\n\n`;
-  md+=`## The venue\n`;
-  md+=line('Name',v.name)+line('City / area',v.city)+line('Concept',v.concept)+line('Cuisine',v.cuisine)+line('Vibe',v.vibe)+line('Website',v.website)+line('Brand colors',v.colors)+'\n';
-
-  md+=`## Spaces\n`;
-  if((m.spaces||[]).some(s=>s.name)){
-    m.spaces.forEach((s,i)=>{if(!s.name&&!s.seated)return;
-      md+=`### ${mdEscape(s.name)||'Space '+(i+1)}\n`;
-      md+=line('Best for',s.bestFor)+line('Seated',s.seated)+line('Standing',s.standing)+line('Minimum',s.minimum)+line('Vibe',s.note)+line('Photo',s.img)+'\n';
-    });
-  }else md+=`_None listed yet._\n\n`;
-
-  md+=`## Occasions hosted\n`;
-  const occ=(m.occasions||[]).slice();if(mdEscape(m.occasionsOther))occ.push(mdEscape(m.occasionsOther));
-  md+=(occ.length?occ.map(o=>`- ${o}`).join('\n'):'_None selected._')+'\n\n';
-
-  md+=`## Food & beverage\n`;
-  md+=line('Service styles',(m.food.styles||[]).join(', '))+line('Signature dishes',m.food.signatures)+line('Bar & beverage',m.food.bar)+line('Dietary handling',m.food.dietary)+'\n';
-
-  md+=`## Packages & pricing\n`;
-  const p=m.packages;
-  md+=line('Number of tiers',p.tiers)+line('Price points (per guest)',p.pricePoints)+line('Deposit %',p.deposit)+line('Service charge %',p.service)+line('Sales tax %',p.tax)+line('Peak-date premium %',p.peakPremium)+line('Inclusions',p.inclusions)+'\n';
-
-  md+=`## The offer & audience\n`;
-  const o=m.offer;
-  md+=line('Typical buyer',o.buyer)+line('Targeting radius',o.radius)+line('Season / dates',o.season)+line('Average event value',o.avgValue)+line('Goals',o.goals)+'\n';
-
-  md+=`## Logistics & policies\n`;
-  const l=m.logistics;
-  md+=line('Event window',l.window)+line('AV / sound',l.av)+line('Parking',l.parking)+line('Lead time',l.leadTime)+line('Cancellation / weather',l.cancellation)+'\n';
-
-  md+=`## Handling inquiries\n`;
-  const h=m.handling;
-  md+=line('Owner',h.owner)+line('Response-time promise',h.responseTime)+line('Email',h.email)+line('Phone',h.phone)+line('Where leads go',h.tools)+'\n';
-
-  md+=`## Photos & assets\n`;
-  const a=m.assets;
-  md+=line('Photography',a.photos)+line('Logo & brand',a.logo)+line('Existing menus',a.menus)+line('Testimonials',a.testimonials)+'\n';
-
-  if(mdEscape(m.notes))md+=`## Anything else\n${mdEscape(m.notes)}\n\n`;
-
-  md+=`---\n_Generated with the Private Events Brief. Figures are the venue's own inputs._\n`;
-  return md;
-}
-function download(name,text,type){
-  const blob=new Blob([text],{type:type||'text/plain'});
-  const url=URL.createObjectURL(blob);const a=document.createElement('a');
-  a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-function safeName(){return (mdEscape(model.venue.name)||'venue').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'venue';}
-
-document.getElementById('btnMd').addEventListener('click',()=>{collect();download(`private-events-brief-${safeName()}.md`,buildMarkdown(),'text/markdown');toast('Brief downloaded.');});
-document.getElementById('btnJson').addEventListener('click',()=>{collect();download(`private-events-brief-${safeName()}.json`,JSON.stringify(model,null,2),'application/json');toast('Data downloaded.');});
-document.getElementById('btnCopy').addEventListener('click',async()=>{collect();try{await navigator.clipboard.writeText(buildMarkdown());toast('Copied to clipboard.');}catch(e){toast('Copy failed — download instead.',true);}});
-document.getElementById('btnPrint').addEventListener('click',()=>{collect();printBrief();});
-function printBrief(){
-  const w=window.open('','_blank');if(!w){toast('Allow pop-ups to print.',true);return;}
-  const md=buildMarkdown();
-  const html=md
-    .replace(/^# (.*)$/gm,'<h1>$1</h1>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/^### (.*)$/gm,'<h3>$1</h3>')
-    .replace(/^- \*\*(.*?):\*\* (.*)$/gm,'<p><b>$1:</b> $2</p>').replace(/^- (.*)$/gm,'<li>$1</li>')
-    .replace(/\*\*(.*?)\*\*/g,'<b>$1</b>').replace(/^\*(.*)\*$/gm,'<em>$1</em>')
-    .replace(/^---$/gm,'<hr>').replace(/\n\n/g,'\n');
-  w.document.write(`<!doctype html><meta charset="utf-8"><title>Private Events Brief — ${mdEscape(model.venue.name)}</title>
-    <style>body{font:15px/1.6 Georgia,serif;max-width:720px;margin:40px auto;padding:0 24px;color:#1a1a1a}
-    h1{font-size:1.9rem;margin:0 0 4px}h2{margin:26px 0 8px;border-bottom:1px solid #ddd;padding-bottom:4px;font-size:1.25rem}
-    h3{margin:16px 0 4px;font-size:1.05rem}p{margin:4px 0}li{margin:2px 0}em{color:#666}hr{margin:28px 0;border:none;border-top:1px solid #ccc}</style>
-    ${html}<script>onload=()=>print()<\/script>`);
-  w.document.close();
-}
-
-/* Import */
-const fileInput=document.getElementById('fileInput');
-function triggerImport(){fileInput.click();}
-document.getElementById('btnImport').addEventListener('click',triggerImport);
-document.getElementById('btnImportTop').addEventListener('click',triggerImport);
-fileInput.addEventListener('change',e=>{
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=()=>{try{const data=JSON.parse(r.result);applyModel(data);toast('Brief loaded.');}catch(err){toast('That file isn’t a valid brief.',true);}};
-  r.readAsText(f);fileInput.value='';
-});
-function applyModel(data){
-  model=Object.assign(emptyModel(),data);
-  // deep-merge nested objects so missing keys keep defaults
-  const base=emptyModel();
-  for(const k in base){if(base[k]&&typeof base[k]==='object'&&!Array.isArray(base[k]))model[k]=Object.assign({},base[k],data[k]||{});}
-  hydrate();save();
-}
-
-/* Reset */
-document.getElementById('btnReset').addEventListener('click',()=>{
-  if(!confirm('Clear the whole brief and start over? This can’t be undone.'))return;
-  model=emptyModel();hydrate();save();toast('Brief cleared.');
-});
-
-/* ------------------------------------------------------------------ */
-/*  AI                                                                 */
-/* ------------------------------------------------------------------ */
-function aiCfg(){try{return JSON.parse(localStorage.getItem(AI_KEY))||{};}catch(e){return{};}}
-function setAiCfg(c){localStorage.setItem(AI_KEY,JSON.stringify(c));refreshAiNote();}
-function refreshAiNote(){
-  const c=aiCfg();const note=document.getElementById('aiStatusNote');
-  if(c.key){note.innerHTML='<b class="cool">Live AI is on.</b> The buttons will call Claude with your key and fill the form directly. Model: <b>'+(c.model||'claude-opus-5')+'</b>. Manage it in <b>AI settings</b>.';}
-  else{note.innerHTML='<b>No API key needed to start.</b> Without one, the buttons hand you a ready-made prompt to paste into Claude or ChatGPT — then paste the answer back to fill the form. Add your own Claude key in <b>AI settings</b> to have it fill the form directly.';}
-}
-
-const SCHEMA_HINT = `Return ONLY a single JSON object (no prose, no markdown fences) matching this shape. Use the venue's real category to invent plausible, specific, editable starting values — realistic room names, capacities, per-guest prices, menu ideas. Money as short strings like "$110". Percentages as bare numbers like "20".
-{
-  "venue":{"name","city","concept","cuisine","vibe","website","colors"},
-  "spaces":[{"name","bestFor","seated","standing","minimum","note","img"}],
-  "occasions":[ strings chosen from: ${OCCASIONS.join(', ')} ],
-  "occasionsOther":"",
-  "food":{"styles":[ chosen from: ${STYLES.join(', ')} ],"signatures","bar","dietary"},
-  "packages":{"tiers","pricePoints","deposit","service","tax","peakPremium","inclusions"},
-  "offer":{"buyer","radius","season","avgValue","goals"},
-  "logistics":{"window","av","parking","leadTime","cancellation"},
-  "handling":{"owner","responseTime","email","phone","tools"},
-  "assets":{"photos","logo","menus","testimonials"},
-  "notes":""
-}`;
-function draftPrompt(){
-  const b={name:document.getElementById('aiName').value||model.venue.name,
-           city:document.getElementById('aiCity').value||model.venue.city,
-           concept:document.getElementById('aiConcept').value||model.venue.concept};
-  collect();
-  return `You are helping a restaurant prepare a brief to design its private-events / group-dining offering.\n`+
-    `Venue: ${b.name||'(unnamed)'} in ${b.city||'(city unknown)'}. Concept: ${b.concept||'(describe a fitting one)'}.\n`+
-    `Here is what they have filled in so far (merge with it, don't discard their answers):\n${JSON.stringify(model)}\n\n`+
-    `Draft a complete, realistic first pass they can edit. Invent sensible specifics where blank. `+SCHEMA_HINT;
-}
-function textPrompt(ctx){
-  collect();
-  return `For a restaurant's private-events brief, write a short, warm, concrete paragraph for: ${ctx}.\n`+
-    `Context so far: ${JSON.stringify(model.venue)}.\nReturn only the paragraph, no preamble.`;
-}
-
-async function callClaude(prompt,system){
-  const c=aiCfg();
-  const res=await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'content-type':'application/json','x-api-key':c.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({model:c.model||'claude-opus-5',max_tokens:8000,
-      system:system||'You are a precise assistant helping design restaurant private-events packages. Follow the requested output format exactly.',
-      messages:[{role:'user',content:prompt}]})
-  });
-  if(!res.ok){let t='';try{t=(await res.json()).error?.message||'';}catch(e){}throw new Error('Claude '+res.status+(t?': '+t:''));}
-  const data=await res.json();
-  return (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
-}
-function parseBriefJSON(text){
-  let t=text.trim().replace(/^```(?:json)?/i,'').replace(/```$/,'').trim();
-  const s=t.indexOf('{'),e=t.lastIndexOf('}');
-  if(s>=0&&e>s)t=t.slice(s,e+1);
-  return JSON.parse(t);
-}
-
-/* Draft the whole brief */
-async function runDraft(btn){
-  const c=aiCfg();
-  const prompt=draftPrompt();
-  if(!c.key){ // no key → copy prompt path
-    try{await navigator.clipboard.writeText(prompt+'\n\n(Paste your JSON answer back into the brief with "Paste an AI answer".)');
-      toast('Prompt copied — paste it into Claude or ChatGPT, then use "Paste an AI answer".');}
-    catch(e){openPasteWithPrompt(prompt);}
-    return;
+/* restore */
+(function restore(){
+  let d;try{d=JSON.parse(localStorage.getItem(STORE));}catch(e){}
+  if(d){
+    form.querySelectorAll('input[name]:not(.hp),textarea[name]:not(.hp)').forEach(el=>{if(d[el.name]!=null)el.value=d[el.name];});
+    (d.occasions||[]).forEach(v=>{const cb=[...occEl.querySelectorAll('input')].find(i=>i.value===v);if(cb){cb.checked=true;cb.closest('.chip').classList.add('on');}});
+    (d.rooms||[]).forEach(addRoom);
   }
-  const orig=btn.innerHTML;btn.disabled=true;btn.innerHTML='<span class="spin"></span> Drafting…';
-  try{
-    const out=await callClaude(prompt);
-    const data=parseBriefJSON(out);
-    applyModel(data);
-    document.getElementById('s-venue').scrollIntoView({behavior:'smooth',block:'start'});
-    toast('Draft filled in — review and edit anything.');
-  }catch(err){toast(err.message||'AI request failed.',true);}
-  finally{btn.disabled=false;btn.innerHTML=orig;}
-}
-document.getElementById('btnAiDraft').addEventListener('click',e=>runDraft(e.currentTarget));
-
-/* Copy prompt button */
-document.getElementById('btnAiPrompt').addEventListener('click',async()=>{
-  const prompt=draftPrompt();
-  try{await navigator.clipboard.writeText(prompt+'\n\n(Paste the JSON answer back with "Paste an AI answer".)');toast('AI prompt copied. Paste it into your assistant.');}
-  catch(e){openPasteWithPrompt(prompt);}
-});
-
-/* Per-field text helper (✨ Help me phrase this) */
-document.querySelectorAll('[data-ai-text]').forEach(btn=>{
-  btn.addEventListener('click',async()=>{
-    const targetPath=btn.dataset.aiText==='notes'?'notes':btn.dataset.aiText;
-    const ta=document.querySelector('[data-path="'+targetPath+'"]');
-    const c=aiCfg();const prompt=textPrompt(btn.dataset.aiCtx+(ta&&ta.value?'. Current draft to improve: '+ta.value:''));
-    if(!c.key){try{await navigator.clipboard.writeText(prompt);toast('Prompt copied — paste into your assistant, then paste the result here.');}catch(e){}return;}
-    const orig=btn.innerHTML;btn.disabled=true;btn.innerHTML='<span class="spin"></span>';
-    try{const out=await callClaude(prompt);if(ta){ta.value=out;collect();save();}toast('Drafted.');}
-    catch(err){toast(err.message||'AI request failed.',true);}
-    finally{btn.disabled=false;btn.innerHTML=orig;}
-  });
-});
-
-/* Paste-answer modal */
-const pasteModal=document.getElementById('pasteModal'),pasteBox=document.getElementById('pasteBox');
-function openPaste(){pasteBox.value='';pasteModal.classList.add('open');pasteBox.focus();}
-function openPasteWithPrompt(prompt){
-  // fallback when clipboard blocked: show prompt so user can copy manually
-  pasteBox.value='';pasteModal.classList.add('open');
-  toast('Clipboard blocked — copy the prompt shown, run it, paste the answer here.',true);
-  pasteBox.placeholder='Paste the assistant’s JSON answer here.\n\n--- PROMPT TO RUN ---\n'+prompt;
-}
-document.getElementById('btnAiPaste').addEventListener('click',openPaste);
-document.getElementById('pasteCancel').addEventListener('click',()=>pasteModal.classList.remove('open'));
-document.getElementById('pasteApply').addEventListener('click',()=>{
-  try{const data=parseBriefJSON(pasteBox.value);applyModel(data);pasteModal.classList.remove('open');document.getElementById('s-venue').scrollIntoView({behavior:'smooth',block:'start'});toast('Answer applied — review and edit.');}
-  catch(err){toast('Couldn’t read that — make sure it’s the JSON block.',true);}
-});
-
-/* Settings modal */
-const settingsModal=document.getElementById('settingsModal');
-document.getElementById('btnAiSettings').addEventListener('click',()=>{
-  const c=aiCfg();document.getElementById('setKey').value=c.key||'';document.getElementById('setModel').value=c.model||'claude-opus-5';
-  settingsModal.classList.add('open');
-});
-document.getElementById('setCancel').addEventListener('click',()=>settingsModal.classList.remove('open'));
-document.getElementById('setSave').addEventListener('click',()=>{
-  const key=document.getElementById('setKey').value.trim();
-  const mdl=document.getElementById('setModel').value.trim()||'claude-opus-5';
-  setAiCfg({key,model:mdl});settingsModal.classList.remove('open');
-  toast(key?'AI key saved to this browser.':'Saved. Add a key anytime for live AI.');
-});
-document.getElementById('setClear').addEventListener('click',()=>{
-  document.getElementById('setKey').value='';setAiCfg({model:document.getElementById('setModel').value.trim()||'claude-opus-5'});
-  toast('Key cleared.');
-});
-[settingsModal,pasteModal].forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){settingsModal.classList.remove('open');pasteModal.classList.remove('open');}});
-
-/* ------------------------------------------------------------------ */
-/*  Boot                                                               */
-/* ------------------------------------------------------------------ */
-(function boot(){
-  try{const saved=localStorage.getItem(STORE_KEY);if(saved){model=Object.assign(emptyModel(),JSON.parse(saved));}}catch(e){}
-  hydrate();
-  if(localStorage.getItem(STORE_KEY)){savePill.classList.add('saved');saveTxt.textContent='Restored your saved brief';}
-  refreshAiNote();
+  if(!roomsEl.children.length)addRoom();
+  compileHidden();
 })();
+
+/* download a copy */
+function buildText(){
+  const d=currentData();
+  let t=`WHAT WE OFFER — PRIVATE EVENTS\n\n`;
+  t+=`Venue: ${d['venue-name']||''}\n`;
+  if(d.city)t+=`City / area: ${d.city}\n`;
+  t+=`Contact: ${d['contact-name']||''}  ${d.email||''}  ${d.phone||''}\n`;
+  if(d.website)t+=`Website: ${d.website}\n`;
+  t+=`\nSPACES\n`;
+  const rooms=d.rooms;
+  if(rooms.length)rooms.forEach((r,i)=>{t+=`  ${i+1}. ${r.name||'(unnamed)'} — seats ${r.seats||'?'} — from ${r.price||'?'}${r.note?(' — '+r.note):''}\n`;});
+  else t+=`  (none listed)\n`;
+  if(d.occasions.length)t+=`\nOccasions hosted: ${d.occasions.join(', ')}\n`;
+  if(d.notes)t+=`\nNotes:\n${d.notes}\n`;
+  return t;
+}
+function download(){
+  const name=(currentData()['venue-name']||'venue').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')||'venue';
+  const blob=new Blob([buildText()],{type:'text/plain'});const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download=`private-events-offering-${name}.txt`;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Copy downloaded.');
+}
+document.getElementById('downloadBtn').addEventListener('click',download);
+document.getElementById('successDownload').addEventListener('click',download);
+
+/* submit (AJAX so we can show an inline thank-you; Netlify captures on deploy) */
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!form.reportValidity())return;
+  compileHidden();
+  const btn=document.getElementById('submitBtn');const orig=btn.innerHTML;
+  btn.disabled=true;btn.innerHTML='<span class="spin"></span> Sending…';
+  const body=new URLSearchParams(new FormData(form)).toString();
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
+    .then(r=>{finishOK();})
+    .catch(()=>{finishOK(true);})
+    .finally(()=>{btn.disabled=false;btn.innerHTML=orig;});
+});
+function finishOK(offline){
+  const d=currentData();
+  form.hidden=true;
+  const card=document.getElementById('successCard');card.hidden=false;
+  document.getElementById('successMsg').textContent = offline
+    ? 'Saved. It looks like the form handler isn’t connected on this host — download a copy below and send it over, and it’ll capture automatically once deployed.'
+    : `Thanks${d['contact-name']?', '+d['contact-name'].split(' ')[0]:''} — we’ve got your details for ${d['venue-name']||'your venue'} and will follow up at ${d.email||'the email you gave us'}.`;
+  try{localStorage.removeItem(STORE);}catch(e){}
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+}
 </script>
 </body>
 </html>
