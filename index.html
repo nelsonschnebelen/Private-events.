@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Year-End Private Events Playbook — December is decided in September. Package it, price it all-in, and advertise it before costs spike.">
-<title>The Year-End Private Events Playbook</title>
+<meta name="description" content="The Private Events Playbook — the highest-margin covers a restaurant sells, won across Q3 and Q4. Package them, price them all-in, advertise before costs spike, and fill the off-peak with discounts.">
+<title>The Private Events Playbook</title>
 <style>
   :root{
     color-scheme: dark;
@@ -248,6 +248,37 @@
   .metric span{font-size:.78rem;color:var(--muted);display:block;margin-top:4px}
   .metric small{font-size:.68rem;color:var(--dim);display:block;margin-top:8px}
 
+  /* ---------- funnel flow ---------- */
+  .funnel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 30px 26px;margin-bottom:22px}
+  .frow{display:flex;align-items:center;gap:16px;margin-bottom:11px;flex-wrap:wrap}
+  .fbar{height:58px;border-radius:11px;display:flex;flex-direction:column;justify-content:center;padding:0 22px;min-width:160px;color:#1A0E06;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+  .fbar .fn{font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+  .fbar .fl{font-size:.68rem;font-weight:700;opacity:.78;text-transform:uppercase;letter-spacing:.1em;margin-top:3px}
+  .fconv{font-size:.76rem;color:var(--gold);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .fconv b{color:var(--text);font-weight:700}
+  .frev{margin-top:18px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;border-top:1px solid var(--line);padding-top:20px}
+  .frev .big{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.02em;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+  .frev .big small{-webkit-text-fill-color:var(--muted);font-size:.8rem;font-weight:500;letter-spacing:0;margin-left:8px}
+  .frev .eq{font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;max-width:34ch}
+  .frev .eq b{color:var(--text);font-weight:600}
+
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;counter-reset:st}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px 22px 62px;position:relative;counter-increment:st}
+  .step::before{content:counter(st,decimal-leading-zero);position:absolute;left:24px;top:22px;font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+  .step .sh{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .step b{font-size:1rem;font-weight:650;letter-spacing:-.01em}
+  .step .sm{font-family:var(--display);font-weight:700;font-size:1.02rem;color:var(--ember2);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .step p{margin:8px 0 0;font-size:.84rem;color:var(--muted)}
+
+  .handler{margin-top:16px;background:linear-gradient(170deg,#221712,#180F0C);border:1px solid rgba(255,120,71,.4);border-radius:16px;padding:26px 28px;position:relative;overflow:hidden}
+  .handler::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+  .handler .who{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .handler h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:1.3rem;margin:8px 0 10px}
+  .handler p{margin:0;font-size:.88rem;color:var(--muted);max-width:74ch}
+  .handler p b{color:var(--text);font-weight:600}
+  .handler p+p{margin-top:10px}
+
   /* ---------- chapters ---------- */
   .chapters{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   @media(max-width:700px){.chapters{grid-template-columns:1fr}}
@@ -267,7 +298,7 @@
 <body>
 <header>
   <div class="wrap nav">
-    <a class="wordmark" href="#top">The Year-End <b>Playbook</b></a>
+    <a class="wordmark" href="#top">The Private Events <b>Playbook</b></a>
     <nav class="nav-links">
       <a href="#calendar">The Calendar</a>
       <a href="#builder">Instant Quote</a>
@@ -285,9 +316,9 @@
     <div class="hero-glow"></div>
     <canvas id="embers" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
-      <p class="kicker">The year-end private events playbook</p>
+      <p class="kicker">The private events playbook · Q3 → Q4</p>
       <h1>December is decided <em>in September.</em></h1>
-      <p class="lede">Holiday parties are the highest-margin covers a restaurant will serve all year — and nearly all of them are booked before the first cold night. Right now, planners are choosing. This is the playbook for packaging them, pricing them all-in, and advertising them in the last weeks before attention gets expensive.</p>
+      <p class="lede">Private events are the highest-margin covers a restaurant will serve all year — and the marquee ones, holiday parties, are booked before the first cold night. Right now, planners are choosing. This is the playbook for the whole back half of the year: package the events, price them all-in, advertise them in the weeks before attention gets expensive — then fill the off-peak calendar with discounted January dates once ad costs collapse.</p>
       <div class="cta-row">
         <a class="btn btn-solid" href="#builder">Build an instant quote</a>
         <a class="btn btn-ghost" href="#ads">See the ad strategy</a>
@@ -602,6 +633,77 @@
           <div class="winband"><b>You have about six weeks of affordable auction left.</b> Intent is at its peak right now while cost is still near its floor. By November your competitors are paying a 75% premium to reach people who already booked somewhere else — and January, the cheapest month on the board, is where you sell Q1 and next December.</div>
         </div>
 
+        <h2 style="margin-top:64px">Follow one dollar <em>through the funnel.</em></h2>
+        <p class="sub">The interactive planner below lets you plug in your own budget. But the number only means something if you can see how it's built — so here's the whole chain, one step at a time, on an illustrative <b>$5,000</b> of season spend. Every ratio is a lever you can pull.</p>
+
+        <div class="funnel" role="img" aria-label="Funnel on $5,000 of spend: 277,800 impressions at $2 per click become 2,500 clicks, a 3.5% inquiry rate yields about 87 inquiries, a 25% close rate yields about 22 booked events, worth roughly $91,900 in event revenue.">
+          <div class="frow">
+            <div class="fbar" style="width:100%;background:linear-gradient(90deg,#7FB2E5,#5B8FBF)"><span class="fn">277,800</span><span class="fl">Impressions</span></div>
+          </div>
+          <div class="frow"><span class="fconv">↓ <b>$2</b> per click</span></div>
+          <div class="frow">
+            <div class="fbar" style="width:60%;background:linear-gradient(90deg,#E3B573,#C99A52)"><span class="fn">2,500</span><span class="fl">Clicks / page visits</span></div>
+          </div>
+          <div class="frow"><span class="fconv">↓ <b>3.5%</b> submit the inquiry form</span></div>
+          <div class="frow">
+            <div class="fbar" style="width:34%;background:linear-gradient(90deg,#FF8E4F,#FF6A3D)"><span class="fn">~87</span><span class="fl">Inquiries</span></div>
+          </div>
+          <div class="frow"><span class="fconv">↓ <b>25%</b> close (this is the human's job)</span></div>
+          <div class="frow">
+            <div class="fbar" style="width:16%;background:var(--grad);box-shadow:0 6px 26px rgba(255,120,71,.4)"><span class="fn">~22</span><span class="fl">Booked events</span></div>
+          </div>
+          <div class="frev">
+            <div class="big">≈ $91,900 <small>in event revenue</small></div>
+            <div class="eq"><b>$5,000</b> spend → ~2,500 clicks → ~87 inquiries → ~22 events → <b>~18× return</b> — before a single rebooking.</div>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="sh"><b>Strategy</b></div>
+            <p>Decide the exact package you're selling and exactly who you're selling it to <em>before</em> a dollar moves. Every number below inherits this choice — the sharpest funnel can't rescue the wrong offer aimed at the wrong buyer.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>Local targeting</b></div>
+            <p>A private event is a local purchase. Cap the radius to the people who could actually drive to the room — roughly 15 miles — and the wasted reach that quietly inflates every cost below simply disappears.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>The ad impression</b><span class="sm">277,800</span></div>
+            <p>Meta or Google serves your ad. You're renting attention in an auction — and in Q4 that auction floods with retail, which is why <em>when</em> you buy matters as much as the creative you put in front of them.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>The click</b><span class="sm">2,500 · $2</span></div>
+            <p>The first real cost, and the first real signal of intent. At about $2 each, $5,000 buys roughly 2,500 clicks — 2,500 chances to convert a curious planner.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>The landing page</b></div>
+            <p>One page, one job. The same 2,500 clicks convert wildly differently depending on what they land on — the all-in price, an instant quote, and the 2-hour promise are what turn a browser into an inquiry instead of a bounce.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>Opt-in rate</b><span class="sm">3.5%</span></div>
+            <p>The make-or-break ratio. A single point of conversion here is worth more than any amount of extra spend — fix the page before you raise the budget, because you're multiplying every click above.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>Inquiry volume</b><span class="sm">~87</span></div>
+            <p>2,500 clicks at 3.5% is about 87 people raising their hand. This is the moment traffic becomes a pipeline — real humans asking about a real date.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>Close rate</b><span class="sm">~22</span></div>
+            <p>About 25% of inquiries become booked events — the step where a person, not an algorithm, decides the outcome. Speed and clarity of the reply move this number more than anything else, and it's the one most venues quietly lose.</p>
+          </div>
+          <div class="step">
+            <div class="sh"><b>Rebook potential</b><span class="sm">+30%</span></div>
+            <p>The compounding layer. A third of this year's clients, held for next December before they leave the room, means next season starts already half-sold. The real ROI isn't this event — it's the annuity of the one after it.</p>
+          </div>
+        </div>
+
+        <div class="handler">
+          <div class="who">The critical success factor</div>
+          <h3>The funnel works or breaks on <em>one hire:</em> a named inquiry handler.</h3>
+          <p>Everything above buys you inquiries. What turns them into bookings is a single person whose entire job is to answer — fast, completely, by name. The pattern is consistent across venues that scale this: route every inquiry to <b>one designated events lead</b>, give them a <b>two-hour response SLA in business hours</b>, and the close rate on four-figure leads climbs out of the high teens into the low thirties — with nothing else in the funnel changed.</p>
+          <p>The math is unforgiving. A planner sends the same request to three to five venues at once. For a booking worth thousands, a reply that waits until tomorrow is usually a reply to someone who already booked last night. <b>Under two hours is the difference between the funnel printing and the funnel leaking.</b></p>
+        </div>
+
         <h2 style="margin-top:64px">Three phases, <em>one budget.</em></h2>
         <p class="sub">Starting in September means you've missed the leisurely warm-up — there's no month left to build an audience before you need it. So run warming and converting in parallel, and get 80% of the season's spend out the door before November.</p>
 
@@ -724,7 +826,7 @@
       <span class="tag">The playbook</span>
       <h2>Eight chapters, start to booked.</h2>
       <div class="chapters" style="margin-top:34px">
-        <div class="chapter"><small>01</small> The Year-End Revenue Case <span>Why Q4 pays for Q1</span></div>
+        <div class="chapter"><small>01</small> The Private Events Revenue Case <span>Why Q4 pays for Q1</span></div>
         <div class="chapter"><small>02</small> Designing the Package Menu <span>Three tiers, no custom quotes</span></div>
         <div class="chapter"><small>03</small> Pricing, Minimums &amp; Peak Dates <span>All-in math by night of week</span></div>
         <div class="chapter"><small>04</small> Engineering the Experience <span>The four scripted beats</span></div>
@@ -750,7 +852,7 @@
 
 <footer>
   <div class="wrap">
-    <span>The Year-End Private Events Playbook</span>
+    <span>The Private Events Playbook</span>
     <span>Benchmarks illustrative · research-synthesized · photography via Unsplash</span>
   </div>
 </footer>
